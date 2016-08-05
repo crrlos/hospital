@@ -1,0 +1,1360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="altas">
+    <Key>
+      <PropertyRef Name="idalta" />
+    </Key>
+    <Property Name="idalta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idinternado" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="observaciones" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="internados" Relationship="Self.FK__altas__idinterna__6C190EBB" FromRole="altas" ToRole="internados" />
+  </EntityType>
+  <EntityType Name="area_Laboral">
+    <Key>
+      <PropertyRef Name="idarealaboral" />
+    </Key>
+    <Property Name="idarealaboral" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreArea" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="medicos" Relationship="Self.FK__medicos__id_area__0A9D95DB" FromRole="area_Laboral" ToRole="medicos" />
+  </EntityType>
+  <EntityType Name="camillas">
+    <Key>
+      <PropertyRef Name="idcamilla" />
+    </Key>
+    <Property Name="idcamilla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idhabitacion" Type="Int32" Nullable="false" />
+    <Property Name="numero_camilla" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="habitaciones" Relationship="Self.FK__camillas__idhabi__6D0D32F4" FromRole="camillas" ToRole="habitaciones" />
+    <NavigationProperty Name="internados" Relationship="Self.FK__internado__idcam__01142BA1" FromRole="camillas" ToRole="internados" />
+  </EntityType>
+  <EntityType Name="cargos">
+    <Key>
+      <PropertyRef Name="idcargo" />
+    </Key>
+    <Property Name="idcargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_cargo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="empleados" Relationship="Self.FK__empleados__idcar__73BA3083" FromRole="cargos" ToRole="empleados" />
+  </EntityType>
+  <EntityType Name="categoria_examen">
+    <Key>
+      <PropertyRef Name="idcategoria" />
+    </Key>
+    <Property Name="idcategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombrecategoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="subcategoria_examen" Relationship="Self.FK__subcatego__idcat__17036CC0" FromRole="categoria_examen" ToRole="subcategoria_examen" />
+  </EntityType>
+  <EntityType Name="cita">
+    <Key>
+      <PropertyRef Name="idcita" />
+    </Key>
+    <Property Name="idcita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="hora" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="observaciones" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="pacientes" Relationship="Self.FK__cita__idpaciente__6E01572D" FromRole="cita" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="consulta">
+    <Key>
+      <PropertyRef Name="idconsulta" />
+    </Key>
+    <Property Name="idconsulta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idmedico" Type="Int32" Nullable="false" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="observaciones" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="medicos" Relationship="Self.FK__consulta__idmedi__628FA481" FromRole="consulta" ToRole="medicos" />
+    <NavigationProperty Name="pacientes" Relationship="Self.FK__consulta__idpaci__6383C8BA" FromRole="consulta" ToRole="pacientes" />
+    <NavigationProperty Name="diagnostico" Relationship="Self.FK__diagnosti__idcon__656C112C" FromRole="consulta" ToRole="diagnostico" />
+    <NavigationProperty Name="expediente" Relationship="Self.FK__expedient__idcon__70DDC3D8" FromRole="consulta" ToRole="expediente" />
+    <NavigationProperty Name="medicamentosrecetados" Relationship="Self.FK__medicamen__idcon__09A971A2" FromRole="consulta" ToRole="medicamentosrecetados" />
+    <NavigationProperty Name="pacientesintomas" Relationship="Self.FK__pacientes__idcon__06CD04F7" FromRole="consulta" ToRole="pacientesintomas" />
+  </EntityType>
+  <EntityType Name="departamentos">
+    <Key>
+      <PropertyRef Name="id_departamento" />
+    </Key>
+    <Property Name="id_departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombredepartamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="empleados" Relationship="Self.FK__empleados__iddep__74AE54BC" FromRole="departamentos" ToRole="empleados" />
+    <NavigationProperty Name="municipios" Relationship="Self.FK__municipio__id_de__0D7A0286" FromRole="departamentos" ToRole="municipios" />
+    <NavigationProperty Name="pacientes" Relationship="Self.FK__pacientes__id_de__0E6E26BF" FromRole="departamentos" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="detallemedicamentos_recetados">
+    <Key>
+      <PropertyRef Name="id_detalle" />
+    </Key>
+    <Property Name="id_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cantidadrecetada" Type="Int32" Nullable="false" />
+    <Property Name="dosis" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idIM" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="medicamentosrecetados" Relationship="Self.FK__medicamen__id_de__08B54D69" FromRole="detallemedicamentos_recetados" ToRole="medicamentosrecetados" />
+  </EntityType>
+  <EntityType Name="DetallePedido">
+    <Key>
+      <PropertyRef Name="id_detallepedido" />
+    </Key>
+    <Property Name="id_detallepedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPedidoMedicamento" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="pedidoMedicamento" Relationship="Self.FK__DetallePe__idPed__70DDC3D8" FromRole="DetallePedido" ToRole="pedidoMedicamento" />
+    <NavigationProperty Name="estadoDelPedido" Relationship="Self.FK__estadoDel__id_de__787EE5A0" FromRole="DetallePedido" ToRole="estadoDelPedido" />
+  </EntityType>
+  <EntityType Name="diagnostico">
+    <Key>
+      <PropertyRef Name="iddiagnostico" />
+    </Key>
+    <Property Name="iddiagnostico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idconsulta" Type="Int32" Nullable="false" />
+    <Property Name="idenfermedad" Type="Int32" Nullable="false" />
+    <Property Name="correcto" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="consulta" Relationship="Self.FK__diagnosti__idcon__656C112C" FromRole="diagnostico" ToRole="consulta" />
+    <NavigationProperty Name="enfermedades" Relationship="Self.FK__diagnosti__idenf__66603565" FromRole="diagnostico" ToRole="enfermedades" />
+  </EntityType>
+  <EntityType Name="empleados">
+    <Key>
+      <PropertyRef Name="idempleado" />
+    </Key>
+    <Property Name="idempleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombres" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="iddepartamento" Type="Int32" Nullable="false" />
+    <Property Name="idmunicipio" Type="Int32" Nullable="false" />
+    <Property Name="dui" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NIT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idcargo" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha_contratacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="cargos" Relationship="Self.FK__empleados__idcar__73BA3083" FromRole="empleados" ToRole="cargos" />
+    <NavigationProperty Name="departamentos" Relationship="Self.FK__empleados__iddep__74AE54BC" FromRole="empleados" ToRole="departamentos" />
+    <NavigationProperty Name="municipios" Relationship="Self.FK__empleados__idmun__75A278F5" FromRole="empleados" ToRole="municipios" />
+    <NavigationProperty Name="encargados_de_laboratorio" Relationship="Self.FK__encargado__idemp__76969D2E" FromRole="empleados" ToRole="encargados_de_laboratorio" />
+    <NavigationProperty Name="encargadosdefarmacia" Relationship="Self.FK__encargado__idemp__778AC167" FromRole="empleados" ToRole="encargadosdefarmacia" />
+    <NavigationProperty Name="horariosempleados" Relationship="Self.FK__horariose__idemp__00200768" FromRole="empleados" ToRole="horariosempleados" />
+    <NavigationProperty Name="medicos" Relationship="Self.FK__medicos__idemple__0B91BA14" FromRole="empleados" ToRole="medicos" />
+    <NavigationProperty Name="usuarios" Relationship="Self.FK__usuarios__idempl__18EBB532" FromRole="empleados" ToRole="usuarios" />
+  </EntityType>
+  <EntityType Name="encargados_de_laboratorio">
+    <Key>
+      <PropertyRef Name="idencargado" />
+    </Key>
+    <Property Name="idencargado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <Property Name="JVPLC" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="empleados" Relationship="Self.FK__encargado__idemp__76969D2E" FromRole="encargados_de_laboratorio" ToRole="empleados" />
+    <NavigationProperty Name="examenes" Relationship="Self.FK__examenes__idenca__797309D9" FromRole="encargados_de_laboratorio" ToRole="examenes" />
+  </EntityType>
+  <EntityType Name="encargadosdefarmacia">
+    <Key>
+      <PropertyRef Name="idencargadodefarmacia" />
+    </Key>
+    <Property Name="idencargadodefarmacia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="empleados" Relationship="Self.FK__encargado__idemp__778AC167" FromRole="encargadosdefarmacia" ToRole="empleados" />
+  </EntityType>
+  <EntityType Name="enfermedades">
+    <Key>
+      <PropertyRef Name="idenfermedad" />
+    </Key>
+    <Property Name="idenfermedad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="diagnostico" Relationship="Self.FK__diagnosti__idenf__66603565" FromRole="enfermedades" ToRole="diagnostico" />
+    <NavigationProperty Name="fallecidos" Relationship="Self.FK__fallecido__idenf__7E37BEF6" FromRole="enfermedades" ToRole="fallecidos" />
+  </EntityType>
+  <EntityType Name="especialidadmedicos">
+    <Key>
+      <PropertyRef Name="idespecialidad" />
+    </Key>
+    <Property Name="idespecialidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_especialidad" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="medicos" Relationship="Self.FK__medicos__idespec__0C85DE4D" FromRole="especialidadmedicos" ToRole="medicos" />
+  </EntityType>
+  <EntityType Name="estadoDelPedido">
+    <Key>
+      <PropertyRef Name="idestado" />
+    </Key>
+    <Property Name="idestado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="estado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_detallepedido" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DetallePedido" Relationship="Self.FK__estadoDel__id_de__787EE5A0" FromRole="estadoDelPedido" ToRole="DetallePedido" />
+  </EntityType>
+  <EntityType Name="examenes">
+    <Key>
+      <PropertyRef Name="idexamenes" />
+    </Key>
+    <Property Name="idexamenes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idsubcategoriaexamen" Type="Int32" Nullable="false" />
+    <Property Name="resultadoanalisis" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idencargadolaboratorio" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="encargados_de_laboratorio" Relationship="Self.FK__examenes__idenca__797309D9" FromRole="examenes" ToRole="encargados_de_laboratorio" />
+    <NavigationProperty Name="subcategoria_examen" Relationship="Self.FK__examenes__idsubc__7A672E12" FromRole="examenes" ToRole="subcategoria_examen" />
+  </EntityType>
+  <EntityType Name="examenespendientes">
+    <Key>
+      <PropertyRef Name="idexamen" />
+    </Key>
+    <Property Name="idexamen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idsubcategoria" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="Boolean" Nullable="false" />
+    <Property Name="idconsulta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="subcategoria_examen" Relationship="Self.FK__examenesp__idsub__7B5B524B" FromRole="examenespendientes" ToRole="subcategoria_examen" />
+  </EntityType>
+  <EntityType Name="expediente">
+    <Key>
+      <PropertyRef Name="idexpediente" />
+    </Key>
+    <Property Name="idexpediente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="idconsulta" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="consulta" Relationship="Self.FK__expedient__idcon__70DDC3D8" FromRole="expediente" ToRole="consulta" />
+    <NavigationProperty Name="pacientes" Relationship="Self.FK__expedient__idpac__7D439ABD" FromRole="expediente" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="fallecidos">
+    <Key>
+      <PropertyRef Name="idfallecido" />
+    </Key>
+    <Property Name="idfallecido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="hora" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="idenfermedad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="enfermedades" Relationship="Self.FK__fallecido__idenf__7E37BEF6" FromRole="fallecidos" ToRole="enfermedades" />
+    <NavigationProperty Name="pacientes" Relationship="Self.FK__fallecido__idpac__7F2BE32F" FromRole="fallecidos" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="habitaciones">
+    <Key>
+      <PropertyRef Name="idhabitacion" />
+    </Key>
+    <Property Name="idhabitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numplanta" Type="Int32" Nullable="false" />
+    <Property Name="numero_de_habitacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="camillas" Relationship="Self.FK__camillas__idhabi__6D0D32F4" FromRole="habitaciones" ToRole="camillas" />
+  </EntityType>
+  <EntityType Name="horariosempleados">
+    <Key>
+      <PropertyRef Name="idhorario" />
+    </Key>
+    <Property Name="idhorario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <Property Name="horaentrada" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="horasalida" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="empleados" Relationship="Self.FK__horariose__idemp__00200768" FromRole="horariosempleados" ToRole="empleados" />
+  </EntityType>
+  <EntityType Name="internados">
+    <Key>
+      <PropertyRef Name="idinternado" />
+    </Key>
+    <Property Name="idinternado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="fecha_de_ingreso" Type="DateTime" Precision="0" />
+    <Property Name="idcamilla" Type="Int32" Nullable="false" />
+    <Property Name="diagnostico" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="altas" Relationship="Self.FK__altas__idinterna__6C190EBB" FromRole="internados" ToRole="altas" />
+    <NavigationProperty Name="camillas" Relationship="Self.FK__internado__idcam__01142BA1" FromRole="internados" ToRole="camillas" />
+    <NavigationProperty Name="pacientes" Relationship="Self.FK__internado__idpac__02084FDA" FromRole="internados" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="inventario_medicamentos">
+    <Key>
+      <PropertyRef Name="idIM" />
+    </Key>
+    <Property Name="idIM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreMedicamento" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idlaboratorio" Type="Int32" Nullable="false" />
+    <Property Name="idlote" Type="Int32" Nullable="false" />
+    <Property Name="cantidad_concentracion" Type="Int32" />
+    <Property Name="idpresentacion" Type="Int32" Nullable="false" />
+    <Property Name="idunidad" Type="Int32" Nullable="false" />
+    <Property Name="cantidad_unidad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="laboratorios_farmaceuticos" Relationship="Self.FK__inventari__idlab__02FC7413" FromRole="inventario_medicamentos" ToRole="laboratorios_farmaceuticos" />
+    <NavigationProperty Name="Lote_Medicamentos" Relationship="Self.FK__inventari__idlot__03F0984C" FromRole="inventario_medicamentos" ToRole="Lote_Medicamentos" />
+    <NavigationProperty Name="presentacionmedicamento" Relationship="Self.FK__inventari__idpre__04E4BC85" FromRole="inventario_medicamentos" ToRole="presentacionmedicamento" />
+    <NavigationProperty Name="unidades" Relationship="Self.FK__inventari__iduni__05D8E0BE" FromRole="inventario_medicamentos" ToRole="unidades" />
+  </EntityType>
+  <EntityType Name="InventarioMedicamentos">
+    <Key>
+      <PropertyRef Name="idInventario" />
+    </Key>
+    <Property Name="idInventario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fechaCaducidad" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CodLote" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idproveedor" Type="Int32" Nullable="false" />
+    <Property Name="idmedicamento" Type="Int32" Nullable="false" />
+    <Property Name="stock" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Medicamentos" Relationship="Self.FK__Inventari__idmed__06CD04F7" FromRole="InventarioMedicamentos" ToRole="Medicamentos" />
+    <NavigationProperty Name="proveedores" Relationship="Self.FK__Inventari__idpro__07C12930" FromRole="InventarioMedicamentos" ToRole="proveedores" />
+  </EntityType>
+  <EntityType Name="laboratorios_farmaceuticos">
+    <Key>
+      <PropertyRef Name="idlaboratorio" />
+    </Key>
+    <Property Name="idlaboratorio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreLaboratorio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="inventario_medicamentos" Relationship="Self.FK__inventari__idlab__02FC7413" FromRole="laboratorios_farmaceuticos" ToRole="inventario_medicamentos" />
+  </EntityType>
+  <EntityType Name="Lote_Medicamentos">
+    <Key>
+      <PropertyRef Name="idlote" />
+    </Key>
+    <Property Name="idlote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha_vencimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="codigoLote" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="inventario_medicamentos" Relationship="Self.FK__inventari__idlot__03F0984C" FromRole="Lote_Medicamentos" ToRole="inventario_medicamentos" />
+  </EntityType>
+  <EntityType Name="Medicamentos">
+    <Key>
+      <PropertyRef Name="idmedicamento" />
+    </Key>
+    <Property Name="idmedicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreMedicamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="presentacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="InventarioMedicamentos" Relationship="Self.FK__Inventari__idmed__06CD04F7" FromRole="Medicamentos" ToRole="InventarioMedicamentos" />
+  </EntityType>
+  <EntityType Name="medicamentosrecetados">
+    <Key>
+      <PropertyRef Name="idmedicamentorecetado" />
+    </Key>
+    <Property Name="idmedicamentorecetado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idconsulta" Type="Int32" Nullable="false" />
+    <Property Name="id_detalle" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="consulta" Relationship="Self.FK__medicamen__idcon__09A971A2" FromRole="medicamentosrecetados" ToRole="consulta" />
+    <NavigationProperty Name="detallemedicamentos_recetados" Relationship="Self.FK__medicamen__id_de__08B54D69" FromRole="medicamentosrecetados" ToRole="detallemedicamentos_recetados" />
+  </EntityType>
+  <EntityType Name="medicos">
+    <Key>
+      <PropertyRef Name="idmedico" />
+    </Key>
+    <Property Name="idmedico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <Property Name="JVPM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_arealaboral" Type="Int32" Nullable="false" />
+    <Property Name="idespecialidad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="area_Laboral" Relationship="Self.FK__medicos__id_area__0A9D95DB" FromRole="medicos" ToRole="area_Laboral" />
+    <NavigationProperty Name="consulta" Relationship="Self.FK__consulta__idmedi__628FA481" FromRole="medicos" ToRole="consulta" />
+    <NavigationProperty Name="empleados" Relationship="Self.FK__medicos__idemple__0B91BA14" FromRole="medicos" ToRole="empleados" />
+    <NavigationProperty Name="especialidadmedicos" Relationship="Self.FK__medicos__idespec__0C85DE4D" FromRole="medicos" ToRole="especialidadmedicos" />
+    <NavigationProperty Name="quirofano" Relationship="Self.FK__quirofano__idmed__14270015" FromRole="medicos" ToRole="quirofano" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="idmenu" />
+    </Key>
+    <Property Name="idmenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="menu1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="municipios">
+    <Key>
+      <PropertyRef Name="idmunicipio" />
+    </Key>
+    <Property Name="idmunicipio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombremunicipio" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_departamento" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="departamentos" Relationship="Self.FK__municipio__id_de__0D7A0286" FromRole="municipios" ToRole="departamentos" />
+    <NavigationProperty Name="empleados" Relationship="Self.FK__empleados__idmun__75A278F5" FromRole="municipios" ToRole="empleados" />
+    <NavigationProperty Name="pacientes" Relationship="Self.FK__pacientes__id_mu__0F624AF8" FromRole="municipios" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="pacientes">
+    <Key>
+      <PropertyRef Name="idpaciente" />
+    </Key>
+    <Property Name="idpaciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombres" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellidos" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="id_departamento" Type="Int32" Nullable="false" />
+    <Property Name="id_municipio" Type="Int32" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="genero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="nombreencargado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="apellidoencargado" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="duiencargado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="telefono_encargado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dui" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="cita" Relationship="Self.FK__cita__idpaciente__6E01572D" FromRole="pacientes" ToRole="cita" />
+    <NavigationProperty Name="consulta" Relationship="Self.FK__consulta__idpaci__6383C8BA" FromRole="pacientes" ToRole="consulta" />
+    <NavigationProperty Name="departamentos" Relationship="Self.FK__pacientes__id_de__0E6E26BF" FromRole="pacientes" ToRole="departamentos" />
+    <NavigationProperty Name="expediente" Relationship="Self.FK__expedient__idpac__7D439ABD" FromRole="pacientes" ToRole="expediente" />
+    <NavigationProperty Name="fallecidos" Relationship="Self.FK__fallecido__idpac__7F2BE32F" FromRole="pacientes" ToRole="fallecidos" />
+    <NavigationProperty Name="internados" Relationship="Self.FK__internado__idpac__02084FDA" FromRole="pacientes" ToRole="internados" />
+    <NavigationProperty Name="municipios" Relationship="Self.FK__pacientes__id_mu__0F624AF8" FromRole="pacientes" ToRole="municipios" />
+    <NavigationProperty Name="quirofano" Relationship="Self.FK__quirofano__idpac__151B244E" FromRole="pacientes" ToRole="quirofano" />
+  </EntityType>
+  <EntityType Name="pacientesintomas">
+    <Key>
+      <PropertyRef Name="idpacientesientomas" />
+    </Key>
+    <Property Name="idpacientesientomas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idconsulta" Type="Int32" />
+    <Property Name="idsintoma" Type="Int32" />
+    <NavigationProperty Name="consulta" Relationship="Self.FK__pacientes__idcon__06CD04F7" FromRole="pacientesintomas" ToRole="consulta" />
+    <NavigationProperty Name="sintomas" Relationship="Self.FK__pacientes__idsin__114A936A" FromRole="pacientesintomas" ToRole="sintomas" />
+  </EntityType>
+  <EntityType Name="pedidoMedicamento">
+    <Key>
+      <PropertyRef Name="idPedidoMedicamento" />
+    </Key>
+    <Property Name="idPedidoMedicamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idproveedor" Type="Int32" Nullable="false" />
+    <Property Name="fechaPedido" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="DetallePedido" Relationship="Self.FK__DetallePe__idPed__70DDC3D8" FromRole="pedidoMedicamento" ToRole="DetallePedido" />
+    <NavigationProperty Name="proveedores" Relationship="Self.FK__pedidoMed__idpro__123EB7A3" FromRole="pedidoMedicamento" ToRole="proveedores" />
+  </EntityType>
+  <EntityType Name="presentacionmedicamento">
+    <Key>
+      <PropertyRef Name="idpresentacion" />
+    </Key>
+    <Property Name="idpresentacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Forma" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idunidades" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="inventario_medicamentos" Relationship="Self.FK__inventari__idpre__04E4BC85" FromRole="presentacionmedicamento" ToRole="inventario_medicamentos" />
+    <NavigationProperty Name="unidades" Relationship="Self.FK__presentac__iduni__1332DBDC" FromRole="presentacionmedicamento" ToRole="unidades" />
+  </EntityType>
+  <EntityType Name="proveedores">
+    <Key>
+      <PropertyRef Name="idproveedor" />
+    </Key>
+    <Property Name="idproveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="InventarioMedicamentos" Relationship="Self.FK__Inventari__idpro__07C12930" FromRole="proveedores" ToRole="InventarioMedicamentos" />
+    <NavigationProperty Name="pedidoMedicamento" Relationship="Self.FK__pedidoMed__idpro__123EB7A3" FromRole="proveedores" ToRole="pedidoMedicamento" />
+  </EntityType>
+  <EntityType Name="quirofano">
+    <Key>
+      <PropertyRef Name="idquirofano" />
+    </Key>
+    <Property Name="idquirofano" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="operacion_realizada" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idmedico" Type="Int32" Nullable="false" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="observaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idtipo_operacion" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="medicos" Relationship="Self.FK__quirofano__idmed__14270015" FromRole="quirofano" ToRole="medicos" />
+    <NavigationProperty Name="pacientes" Relationship="Self.FK__quirofano__idpac__151B244E" FromRole="quirofano" ToRole="pacientes" />
+    <NavigationProperty Name="tipo_operaciones" Relationship="Self.FK__quirofano__idtip__160F4887" FromRole="quirofano" ToRole="tipo_operaciones" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="idrol" />
+    </Key>
+    <Property Name="idrol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rol" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="usuariomenu" Relationship="Self.FK__usuariome__idrol__17F790F9" FromRole="roles" ToRole="usuariomenu" />
+    <NavigationProperty Name="usuarios" Relationship="Self.FK__usuarios__idrol__19DFD96B" FromRole="roles" ToRole="usuarios" />
+  </EntityType>
+  <EntityType Name="sintomas">
+    <Key>
+      <PropertyRef Name="idsintoma" />
+    </Key>
+    <Property Name="idsintoma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sintoma" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="pacientesintomas" Relationship="Self.FK__pacientes__idsin__114A936A" FromRole="sintomas" ToRole="pacientesintomas" />
+  </EntityType>
+  <EntityType Name="sinversion">
+    <Key>
+      <PropertyRef Name="dbversion" />
+    </Key>
+    <Property Name="dbversion" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="subcategoria_examen">
+    <Key>
+      <PropertyRef Name="idsubcategoria_examen" />
+    </Key>
+    <Property Name="idsubcategoria_examen" Type="Int32" Nullable="false" />
+    <Property Name="nombresubcategoria" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idcategoria" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="categoria_examen" Relationship="Self.FK__subcatego__idcat__17036CC0" FromRole="subcategoria_examen" ToRole="categoria_examen" />
+    <NavigationProperty Name="examenes" Relationship="Self.FK__examenes__idsubc__7A672E12" FromRole="subcategoria_examen" ToRole="examenes" />
+    <NavigationProperty Name="examenespendientes" Relationship="Self.FK__examenesp__idsub__7B5B524B" FromRole="subcategoria_examen" ToRole="examenespendientes" />
+  </EntityType>
+  <EntityType Name="tipo_operaciones">
+    <Key>
+      <PropertyRef Name="idtipo_operaciones" />
+    </Key>
+    <Property Name="idtipo_operaciones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_operacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="observaciones" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="quirofano" Relationship="Self.FK__quirofano__idtip__160F4887" FromRole="tipo_operaciones" ToRole="quirofano" />
+  </EntityType>
+  <EntityType Name="unidades">
+    <Key>
+      <PropertyRef Name="idunidad" />
+    </Key>
+    <Property Name="idunidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="unidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="inventario_medicamentos" Relationship="Self.FK__inventari__iduni__05D8E0BE" FromRole="unidades" ToRole="inventario_medicamentos" />
+    <NavigationProperty Name="presentacionmedicamento" Relationship="Self.FK__presentac__iduni__1332DBDC" FromRole="unidades" ToRole="presentacionmedicamento" />
+  </EntityType>
+  <EntityType Name="usuariomenu">
+    <Key>
+      <PropertyRef Name="idusuariomenu" />
+    </Key>
+    <Property Name="idusuariomenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idrol" Type="Int32" Nullable="false" />
+    <Property Name="idmenu" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="roles" Relationship="Self.FK__usuariome__idrol__17F790F9" FromRole="usuariomenu" ToRole="roles" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="clave" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idrol" Type="Int32" Nullable="false" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="empleados" Relationship="Self.FK__usuarios__idempl__18EBB532" FromRole="usuarios" ToRole="empleados" />
+    <NavigationProperty Name="roles" Relationship="Self.FK__usuarios__idrol__19DFD96B" FromRole="usuarios" ToRole="roles" />
+  </EntityType>
+  <EntityType Name="viaAdministracion">
+    <Key>
+      <PropertyRef Name="idViaAdministracion" />
+    </Key>
+    <Property Name="idViaAdministracion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="via" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__altas__idinterna__6C190EBB">
+    <End Role="internados" Type="Self.internados" Multiplicity="1" />
+    <End Role="altas" Type="Self.altas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="internados">
+        <PropertyRef Name="idinternado" />
+      </Principal>
+      <Dependent Role="altas">
+        <PropertyRef Name="idinternado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicos__id_area__0A9D95DB">
+    <End Role="area_Laboral" Type="Self.area_Laboral" Multiplicity="1" />
+    <End Role="medicos" Type="Self.medicos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="area_Laboral">
+        <PropertyRef Name="idarealaboral" />
+      </Principal>
+      <Dependent Role="medicos">
+        <PropertyRef Name="id_arealaboral" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__camillas__idhabi__6D0D32F4">
+    <End Role="habitaciones" Type="Self.habitaciones" Multiplicity="1" />
+    <End Role="camillas" Type="Self.camillas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="habitaciones">
+        <PropertyRef Name="idhabitacion" />
+      </Principal>
+      <Dependent Role="camillas">
+        <PropertyRef Name="idhabitacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__internado__idcam__01142BA1">
+    <End Role="camillas" Type="Self.camillas" Multiplicity="1" />
+    <End Role="internados" Type="Self.internados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="camillas">
+        <PropertyRef Name="idcamilla" />
+      </Principal>
+      <Dependent Role="internados">
+        <PropertyRef Name="idcamilla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__empleados__idcar__73BA3083">
+    <End Role="cargos" Type="Self.cargos" Multiplicity="1" />
+    <End Role="empleados" Type="Self.empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cargos">
+        <PropertyRef Name="idcargo" />
+      </Principal>
+      <Dependent Role="empleados">
+        <PropertyRef Name="idcargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__subcatego__idcat__17036CC0">
+    <End Role="categoria_examen" Type="Self.categoria_examen" Multiplicity="1" />
+    <End Role="subcategoria_examen" Type="Self.subcategoria_examen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categoria_examen">
+        <PropertyRef Name="idcategoria" />
+      </Principal>
+      <Dependent Role="subcategoria_examen">
+        <PropertyRef Name="idcategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cita__idpaciente__6E01572D">
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+    <End Role="cita" Type="Self.cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="cita">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__consulta__idmedi__628FA481">
+    <End Role="medicos" Type="Self.medicos" Multiplicity="1" />
+    <End Role="consulta" Type="Self.consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="medicos">
+        <PropertyRef Name="idmedico" />
+      </Principal>
+      <Dependent Role="consulta">
+        <PropertyRef Name="idmedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__consulta__idpaci__6383C8BA">
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+    <End Role="consulta" Type="Self.consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="consulta">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__diagnosti__idcon__656C112C">
+    <End Role="consulta" Type="Self.consulta" Multiplicity="1" />
+    <End Role="diagnostico" Type="Self.diagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="consulta">
+        <PropertyRef Name="idconsulta" />
+      </Principal>
+      <Dependent Role="diagnostico">
+        <PropertyRef Name="idconsulta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__expedient__idcon__70DDC3D8">
+    <End Role="consulta" Type="Self.consulta" Multiplicity="1" />
+    <End Role="expediente" Type="Self.expediente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="consulta">
+        <PropertyRef Name="idconsulta" />
+      </Principal>
+      <Dependent Role="expediente">
+        <PropertyRef Name="idconsulta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicamen__idcon__09A971A2">
+    <End Role="consulta" Type="Self.consulta" Multiplicity="1" />
+    <End Role="medicamentosrecetados" Type="Self.medicamentosrecetados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="consulta">
+        <PropertyRef Name="idconsulta" />
+      </Principal>
+      <Dependent Role="medicamentosrecetados">
+        <PropertyRef Name="idconsulta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pacientes__idcon__06CD04F7">
+    <End Role="consulta" Type="Self.consulta" Multiplicity="0..1" />
+    <End Role="pacientesintomas" Type="Self.pacientesintomas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="consulta">
+        <PropertyRef Name="idconsulta" />
+      </Principal>
+      <Dependent Role="pacientesintomas">
+        <PropertyRef Name="idconsulta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__empleados__iddep__74AE54BC">
+    <End Role="departamentos" Type="Self.departamentos" Multiplicity="1" />
+    <End Role="empleados" Type="Self.empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="empleados">
+        <PropertyRef Name="iddepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__municipio__id_de__0D7A0286">
+    <End Role="departamentos" Type="Self.departamentos" Multiplicity="1" />
+    <End Role="municipios" Type="Self.municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="municipios">
+        <PropertyRef Name="id_departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pacientes__id_de__0E6E26BF">
+    <End Role="departamentos" Type="Self.departamentos" Multiplicity="1" />
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="pacientes">
+        <PropertyRef Name="id_departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicamen__id_de__08B54D69">
+    <End Role="detallemedicamentos_recetados" Type="Self.detallemedicamentos_recetados" Multiplicity="1" />
+    <End Role="medicamentosrecetados" Type="Self.medicamentosrecetados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="detallemedicamentos_recetados">
+        <PropertyRef Name="id_detalle" />
+      </Principal>
+      <Dependent Role="medicamentosrecetados">
+        <PropertyRef Name="id_detalle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetallePe__idPed__70DDC3D8">
+    <End Role="pedidoMedicamento" Type="Self.pedidoMedicamento" Multiplicity="1" />
+    <End Role="DetallePedido" Type="Self.DetallePedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedidoMedicamento">
+        <PropertyRef Name="idPedidoMedicamento" />
+      </Principal>
+      <Dependent Role="DetallePedido">
+        <PropertyRef Name="idPedidoMedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__estadoDel__id_de__787EE5A0">
+    <End Role="DetallePedido" Type="Self.DetallePedido" Multiplicity="1" />
+    <End Role="estadoDelPedido" Type="Self.estadoDelPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DetallePedido">
+        <PropertyRef Name="id_detallepedido" />
+      </Principal>
+      <Dependent Role="estadoDelPedido">
+        <PropertyRef Name="id_detallepedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__diagnosti__idenf__66603565">
+    <End Role="enfermedades" Type="Self.enfermedades" Multiplicity="1" />
+    <End Role="diagnostico" Type="Self.diagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enfermedades">
+        <PropertyRef Name="idenfermedad" />
+      </Principal>
+      <Dependent Role="diagnostico">
+        <PropertyRef Name="idenfermedad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__empleados__idmun__75A278F5">
+    <End Role="municipios" Type="Self.municipios" Multiplicity="1" />
+    <End Role="empleados" Type="Self.empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="municipios">
+        <PropertyRef Name="idmunicipio" />
+      </Principal>
+      <Dependent Role="empleados">
+        <PropertyRef Name="idmunicipio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__encargado__idemp__76969D2E">
+    <End Role="empleados" Type="Self.empleados" Multiplicity="1" />
+    <End Role="encargados_de_laboratorio" Type="Self.encargados_de_laboratorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="encargados_de_laboratorio">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__encargado__idemp__778AC167">
+    <End Role="empleados" Type="Self.empleados" Multiplicity="1" />
+    <End Role="encargadosdefarmacia" Type="Self.encargadosdefarmacia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="encargadosdefarmacia">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__horariose__idemp__00200768">
+    <End Role="empleados" Type="Self.empleados" Multiplicity="1" />
+    <End Role="horariosempleados" Type="Self.horariosempleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="horariosempleados">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicos__idemple__0B91BA14">
+    <End Role="empleados" Type="Self.empleados" Multiplicity="1" />
+    <End Role="medicos" Type="Self.medicos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="medicos">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuarios__idempl__18EBB532">
+    <End Role="empleados" Type="Self.empleados" Multiplicity="1" />
+    <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__examenes__idenca__797309D9">
+    <End Role="encargados_de_laboratorio" Type="Self.encargados_de_laboratorio" Multiplicity="1" />
+    <End Role="examenes" Type="Self.examenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="encargados_de_laboratorio">
+        <PropertyRef Name="idencargado" />
+      </Principal>
+      <Dependent Role="examenes">
+        <PropertyRef Name="idencargadolaboratorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__fallecido__idenf__7E37BEF6">
+    <End Role="enfermedades" Type="Self.enfermedades" Multiplicity="1" />
+    <End Role="fallecidos" Type="Self.fallecidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enfermedades">
+        <PropertyRef Name="idenfermedad" />
+      </Principal>
+      <Dependent Role="fallecidos">
+        <PropertyRef Name="idenfermedad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicos__idespec__0C85DE4D">
+    <End Role="especialidadmedicos" Type="Self.especialidadmedicos" Multiplicity="1" />
+    <End Role="medicos" Type="Self.medicos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="especialidadmedicos">
+        <PropertyRef Name="idespecialidad" />
+      </Principal>
+      <Dependent Role="medicos">
+        <PropertyRef Name="idespecialidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__examenes__idsubc__7A672E12">
+    <End Role="subcategoria_examen" Type="Self.subcategoria_examen" Multiplicity="1" />
+    <End Role="examenes" Type="Self.examenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subcategoria_examen">
+        <PropertyRef Name="idsubcategoria_examen" />
+      </Principal>
+      <Dependent Role="examenes">
+        <PropertyRef Name="idsubcategoriaexamen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__examenesp__idsub__7B5B524B">
+    <End Role="subcategoria_examen" Type="Self.subcategoria_examen" Multiplicity="1" />
+    <End Role="examenespendientes" Type="Self.examenespendientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subcategoria_examen">
+        <PropertyRef Name="idsubcategoria_examen" />
+      </Principal>
+      <Dependent Role="examenespendientes">
+        <PropertyRef Name="idsubcategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__expedient__idpac__7D439ABD">
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+    <End Role="expediente" Type="Self.expediente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="expediente">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__fallecido__idpac__7F2BE32F">
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+    <End Role="fallecidos" Type="Self.fallecidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="fallecidos">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__internado__idpac__02084FDA">
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+    <End Role="internados" Type="Self.internados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="internados">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__inventari__idlab__02FC7413">
+    <End Role="laboratorios_farmaceuticos" Type="Self.laboratorios_farmaceuticos" Multiplicity="1" />
+    <End Role="inventario_medicamentos" Type="Self.inventario_medicamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="laboratorios_farmaceuticos">
+        <PropertyRef Name="idlaboratorio" />
+      </Principal>
+      <Dependent Role="inventario_medicamentos">
+        <PropertyRef Name="idlaboratorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__inventari__idlot__03F0984C">
+    <End Role="Lote_Medicamentos" Type="Self.Lote_Medicamentos" Multiplicity="1" />
+    <End Role="inventario_medicamentos" Type="Self.inventario_medicamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lote_Medicamentos">
+        <PropertyRef Name="idlote" />
+      </Principal>
+      <Dependent Role="inventario_medicamentos">
+        <PropertyRef Name="idlote" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__inventari__idpre__04E4BC85">
+    <End Role="presentacionmedicamento" Type="Self.presentacionmedicamento" Multiplicity="1" />
+    <End Role="inventario_medicamentos" Type="Self.inventario_medicamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="presentacionmedicamento">
+        <PropertyRef Name="idpresentacion" />
+      </Principal>
+      <Dependent Role="inventario_medicamentos">
+        <PropertyRef Name="idpresentacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__inventari__iduni__05D8E0BE">
+    <End Role="unidades" Type="Self.unidades" Multiplicity="1" />
+    <End Role="inventario_medicamentos" Type="Self.inventario_medicamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidades">
+        <PropertyRef Name="idunidad" />
+      </Principal>
+      <Dependent Role="inventario_medicamentos">
+        <PropertyRef Name="idunidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inventari__idmed__06CD04F7">
+    <End Role="Medicamentos" Type="Self.Medicamentos" Multiplicity="1" />
+    <End Role="InventarioMedicamentos" Type="Self.InventarioMedicamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamentos">
+        <PropertyRef Name="idmedicamento" />
+      </Principal>
+      <Dependent Role="InventarioMedicamentos">
+        <PropertyRef Name="idmedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Inventari__idpro__07C12930">
+    <End Role="proveedores" Type="Self.proveedores" Multiplicity="1" />
+    <End Role="InventarioMedicamentos" Type="Self.InventarioMedicamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proveedores">
+        <PropertyRef Name="idproveedor" />
+      </Principal>
+      <Dependent Role="InventarioMedicamentos">
+        <PropertyRef Name="idproveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__quirofano__idmed__14270015">
+    <End Role="medicos" Type="Self.medicos" Multiplicity="1" />
+    <End Role="quirofano" Type="Self.quirofano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="medicos">
+        <PropertyRef Name="idmedico" />
+      </Principal>
+      <Dependent Role="quirofano">
+        <PropertyRef Name="idmedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pacientes__id_mu__0F624AF8">
+    <End Role="municipios" Type="Self.municipios" Multiplicity="1" />
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="municipios">
+        <PropertyRef Name="idmunicipio" />
+      </Principal>
+      <Dependent Role="pacientes">
+        <PropertyRef Name="id_municipio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__quirofano__idpac__151B244E">
+    <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+    <End Role="quirofano" Type="Self.quirofano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="quirofano">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pacientes__idsin__114A936A">
+    <End Role="sintomas" Type="Self.sintomas" Multiplicity="0..1" />
+    <End Role="pacientesintomas" Type="Self.pacientesintomas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sintomas">
+        <PropertyRef Name="idsintoma" />
+      </Principal>
+      <Dependent Role="pacientesintomas">
+        <PropertyRef Name="idsintoma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pedidoMed__idpro__123EB7A3">
+    <End Role="proveedores" Type="Self.proveedores" Multiplicity="1" />
+    <End Role="pedidoMedicamento" Type="Self.pedidoMedicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="proveedores">
+        <PropertyRef Name="idproveedor" />
+      </Principal>
+      <Dependent Role="pedidoMedicamento">
+        <PropertyRef Name="idproveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__presentac__iduni__1332DBDC">
+    <End Role="unidades" Type="Self.unidades" Multiplicity="1" />
+    <End Role="presentacionmedicamento" Type="Self.presentacionmedicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="unidades">
+        <PropertyRef Name="idunidad" />
+      </Principal>
+      <Dependent Role="presentacionmedicamento">
+        <PropertyRef Name="idunidades" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__quirofano__idtip__160F4887">
+    <End Role="tipo_operaciones" Type="Self.tipo_operaciones" Multiplicity="1" />
+    <End Role="quirofano" Type="Self.quirofano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_operaciones">
+        <PropertyRef Name="idtipo_operaciones" />
+      </Principal>
+      <Dependent Role="quirofano">
+        <PropertyRef Name="idtipo_operacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuariome__idrol__17F790F9">
+    <End Role="roles" Type="Self.roles" Multiplicity="1" />
+    <End Role="usuariomenu" Type="Self.usuariomenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="usuariomenu">
+        <PropertyRef Name="idrol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuarios__idrol__19DFD96B">
+    <End Role="roles" Type="Self.roles" Multiplicity="1" />
+    <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="idrol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="hospitalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="altas" EntityType="Self.altas" />
+    <EntitySet Name="area_Laboral" EntityType="Self.area_Laboral" />
+    <EntitySet Name="camillas" EntityType="Self.camillas" />
+    <EntitySet Name="cargos" EntityType="Self.cargos" />
+    <EntitySet Name="categoria_examen" EntityType="Self.categoria_examen" />
+    <EntitySet Name="cita" EntityType="Self.cita" />
+    <EntitySet Name="consulta" EntityType="Self.consulta" />
+    <EntitySet Name="departamentos" EntityType="Self.departamentos" />
+    <EntitySet Name="detallemedicamentos_recetados" EntityType="Self.detallemedicamentos_recetados" />
+    <EntitySet Name="DetallePedido" EntityType="Self.DetallePedido" />
+    <EntitySet Name="diagnostico" EntityType="Self.diagnostico" />
+    <EntitySet Name="empleados" EntityType="Self.empleados" />
+    <EntitySet Name="encargados_de_laboratorio" EntityType="Self.encargados_de_laboratorio" />
+    <EntitySet Name="encargadosdefarmacia" EntityType="Self.encargadosdefarmacia" />
+    <EntitySet Name="enfermedades" EntityType="Self.enfermedades" />
+    <EntitySet Name="especialidadmedicos" EntityType="Self.especialidadmedicos" />
+    <EntitySet Name="estadoDelPedido" EntityType="Self.estadoDelPedido" />
+    <EntitySet Name="examenes" EntityType="Self.examenes" />
+    <EntitySet Name="examenespendientes" EntityType="Self.examenespendientes" />
+    <EntitySet Name="expediente" EntityType="Self.expediente" />
+    <EntitySet Name="fallecidos" EntityType="Self.fallecidos" />
+    <EntitySet Name="habitaciones" EntityType="Self.habitaciones" />
+    <EntitySet Name="horariosempleados" EntityType="Self.horariosempleados" />
+    <EntitySet Name="internados" EntityType="Self.internados" />
+    <EntitySet Name="inventario_medicamentos" EntityType="Self.inventario_medicamentos" />
+    <EntitySet Name="InventarioMedicamentos" EntityType="Self.InventarioMedicamentos" />
+    <EntitySet Name="laboratorios_farmaceuticos" EntityType="Self.laboratorios_farmaceuticos" />
+    <EntitySet Name="Lote_Medicamentos" EntityType="Self.Lote_Medicamentos" />
+    <EntitySet Name="Medicamentos" EntityType="Self.Medicamentos" />
+    <EntitySet Name="medicamentosrecetados" EntityType="Self.medicamentosrecetados" />
+    <EntitySet Name="medicos" EntityType="Self.medicos" />
+    <EntitySet Name="menu" EntityType="Self.menu" />
+    <EntitySet Name="municipios" EntityType="Self.municipios" />
+    <EntitySet Name="pacientes" EntityType="Self.pacientes" />
+    <EntitySet Name="pacientesintomas" EntityType="Self.pacientesintomas" />
+    <EntitySet Name="pedidoMedicamento" EntityType="Self.pedidoMedicamento" />
+    <EntitySet Name="presentacionmedicamento" EntityType="Self.presentacionmedicamento" />
+    <EntitySet Name="proveedores" EntityType="Self.proveedores" />
+    <EntitySet Name="quirofano" EntityType="Self.quirofano" />
+    <EntitySet Name="roles" EntityType="Self.roles" />
+    <EntitySet Name="sintomas" EntityType="Self.sintomas" />
+    <EntitySet Name="sinversion" EntityType="Self.sinversion" />
+    <EntitySet Name="subcategoria_examen" EntityType="Self.subcategoria_examen" />
+    <EntitySet Name="tipo_operaciones" EntityType="Self.tipo_operaciones" />
+    <EntitySet Name="unidades" EntityType="Self.unidades" />
+    <EntitySet Name="usuariomenu" EntityType="Self.usuariomenu" />
+    <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+    <EntitySet Name="viaAdministracion" EntityType="Self.viaAdministracion" />
+    <AssociationSet Name="FK__altas__idinterna__6C190EBB" Association="Self.FK__altas__idinterna__6C190EBB">
+      <End Role="internados" EntitySet="internados" />
+      <End Role="altas" EntitySet="altas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicos__id_area__0A9D95DB" Association="Self.FK__medicos__id_area__0A9D95DB">
+      <End Role="area_Laboral" EntitySet="area_Laboral" />
+      <End Role="medicos" EntitySet="medicos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__camillas__idhabi__6D0D32F4" Association="Self.FK__camillas__idhabi__6D0D32F4">
+      <End Role="habitaciones" EntitySet="habitaciones" />
+      <End Role="camillas" EntitySet="camillas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__internado__idcam__01142BA1" Association="Self.FK__internado__idcam__01142BA1">
+      <End Role="camillas" EntitySet="camillas" />
+      <End Role="internados" EntitySet="internados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__empleados__idcar__73BA3083" Association="Self.FK__empleados__idcar__73BA3083">
+      <End Role="cargos" EntitySet="cargos" />
+      <End Role="empleados" EntitySet="empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__subcatego__idcat__17036CC0" Association="Self.FK__subcatego__idcat__17036CC0">
+      <End Role="categoria_examen" EntitySet="categoria_examen" />
+      <End Role="subcategoria_examen" EntitySet="subcategoria_examen" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cita__idpaciente__6E01572D" Association="Self.FK__cita__idpaciente__6E01572D">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="cita" EntitySet="cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__consulta__idmedi__628FA481" Association="Self.FK__consulta__idmedi__628FA481">
+      <End Role="medicos" EntitySet="medicos" />
+      <End Role="consulta" EntitySet="consulta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__consulta__idpaci__6383C8BA" Association="Self.FK__consulta__idpaci__6383C8BA">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="consulta" EntitySet="consulta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__diagnosti__idcon__656C112C" Association="Self.FK__diagnosti__idcon__656C112C">
+      <End Role="consulta" EntitySet="consulta" />
+      <End Role="diagnostico" EntitySet="diagnostico" />
+    </AssociationSet>
+    <AssociationSet Name="FK__expedient__idcon__70DDC3D8" Association="Self.FK__expedient__idcon__70DDC3D8">
+      <End Role="consulta" EntitySet="consulta" />
+      <End Role="expediente" EntitySet="expediente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicamen__idcon__09A971A2" Association="Self.FK__medicamen__idcon__09A971A2">
+      <End Role="consulta" EntitySet="consulta" />
+      <End Role="medicamentosrecetados" EntitySet="medicamentosrecetados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pacientes__idcon__06CD04F7" Association="Self.FK__pacientes__idcon__06CD04F7">
+      <End Role="consulta" EntitySet="consulta" />
+      <End Role="pacientesintomas" EntitySet="pacientesintomas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__empleados__iddep__74AE54BC" Association="Self.FK__empleados__iddep__74AE54BC">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="empleados" EntitySet="empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__municipio__id_de__0D7A0286" Association="Self.FK__municipio__id_de__0D7A0286">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="municipios" EntitySet="municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pacientes__id_de__0E6E26BF" Association="Self.FK__pacientes__id_de__0E6E26BF">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="pacientes" EntitySet="pacientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicamen__id_de__08B54D69" Association="Self.FK__medicamen__id_de__08B54D69">
+      <End Role="detallemedicamentos_recetados" EntitySet="detallemedicamentos_recetados" />
+      <End Role="medicamentosrecetados" EntitySet="medicamentosrecetados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetallePe__idPed__70DDC3D8" Association="Self.FK__DetallePe__idPed__70DDC3D8">
+      <End Role="pedidoMedicamento" EntitySet="pedidoMedicamento" />
+      <End Role="DetallePedido" EntitySet="DetallePedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK__estadoDel__id_de__787EE5A0" Association="Self.FK__estadoDel__id_de__787EE5A0">
+      <End Role="DetallePedido" EntitySet="DetallePedido" />
+      <End Role="estadoDelPedido" EntitySet="estadoDelPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK__diagnosti__idenf__66603565" Association="Self.FK__diagnosti__idenf__66603565">
+      <End Role="enfermedades" EntitySet="enfermedades" />
+      <End Role="diagnostico" EntitySet="diagnostico" />
+    </AssociationSet>
+    <AssociationSet Name="FK__empleados__idmun__75A278F5" Association="Self.FK__empleados__idmun__75A278F5">
+      <End Role="municipios" EntitySet="municipios" />
+      <End Role="empleados" EntitySet="empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__encargado__idemp__76969D2E" Association="Self.FK__encargado__idemp__76969D2E">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="encargados_de_laboratorio" EntitySet="encargados_de_laboratorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__encargado__idemp__778AC167" Association="Self.FK__encargado__idemp__778AC167">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="encargadosdefarmacia" EntitySet="encargadosdefarmacia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__horariose__idemp__00200768" Association="Self.FK__horariose__idemp__00200768">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="horariosempleados" EntitySet="horariosempleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicos__idemple__0B91BA14" Association="Self.FK__medicos__idemple__0B91BA14">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="medicos" EntitySet="medicos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuarios__idempl__18EBB532" Association="Self.FK__usuarios__idempl__18EBB532">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="usuarios" EntitySet="usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__examenes__idenca__797309D9" Association="Self.FK__examenes__idenca__797309D9">
+      <End Role="encargados_de_laboratorio" EntitySet="encargados_de_laboratorio" />
+      <End Role="examenes" EntitySet="examenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__fallecido__idenf__7E37BEF6" Association="Self.FK__fallecido__idenf__7E37BEF6">
+      <End Role="enfermedades" EntitySet="enfermedades" />
+      <End Role="fallecidos" EntitySet="fallecidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicos__idespec__0C85DE4D" Association="Self.FK__medicos__idespec__0C85DE4D">
+      <End Role="especialidadmedicos" EntitySet="especialidadmedicos" />
+      <End Role="medicos" EntitySet="medicos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__examenes__idsubc__7A672E12" Association="Self.FK__examenes__idsubc__7A672E12">
+      <End Role="subcategoria_examen" EntitySet="subcategoria_examen" />
+      <End Role="examenes" EntitySet="examenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__examenesp__idsub__7B5B524B" Association="Self.FK__examenesp__idsub__7B5B524B">
+      <End Role="subcategoria_examen" EntitySet="subcategoria_examen" />
+      <End Role="examenespendientes" EntitySet="examenespendientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__expedient__idpac__7D439ABD" Association="Self.FK__expedient__idpac__7D439ABD">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="expediente" EntitySet="expediente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__fallecido__idpac__7F2BE32F" Association="Self.FK__fallecido__idpac__7F2BE32F">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="fallecidos" EntitySet="fallecidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__internado__idpac__02084FDA" Association="Self.FK__internado__idpac__02084FDA">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="internados" EntitySet="internados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__inventari__idlab__02FC7413" Association="Self.FK__inventari__idlab__02FC7413">
+      <End Role="laboratorios_farmaceuticos" EntitySet="laboratorios_farmaceuticos" />
+      <End Role="inventario_medicamentos" EntitySet="inventario_medicamentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__inventari__idlot__03F0984C" Association="Self.FK__inventari__idlot__03F0984C">
+      <End Role="Lote_Medicamentos" EntitySet="Lote_Medicamentos" />
+      <End Role="inventario_medicamentos" EntitySet="inventario_medicamentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__inventari__idpre__04E4BC85" Association="Self.FK__inventari__idpre__04E4BC85">
+      <End Role="presentacionmedicamento" EntitySet="presentacionmedicamento" />
+      <End Role="inventario_medicamentos" EntitySet="inventario_medicamentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__inventari__iduni__05D8E0BE" Association="Self.FK__inventari__iduni__05D8E0BE">
+      <End Role="unidades" EntitySet="unidades" />
+      <End Role="inventario_medicamentos" EntitySet="inventario_medicamentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inventari__idmed__06CD04F7" Association="Self.FK__Inventari__idmed__06CD04F7">
+      <End Role="Medicamentos" EntitySet="Medicamentos" />
+      <End Role="InventarioMedicamentos" EntitySet="InventarioMedicamentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Inventari__idpro__07C12930" Association="Self.FK__Inventari__idpro__07C12930">
+      <End Role="proveedores" EntitySet="proveedores" />
+      <End Role="InventarioMedicamentos" EntitySet="InventarioMedicamentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__quirofano__idmed__14270015" Association="Self.FK__quirofano__idmed__14270015">
+      <End Role="medicos" EntitySet="medicos" />
+      <End Role="quirofano" EntitySet="quirofano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pacientes__id_mu__0F624AF8" Association="Self.FK__pacientes__id_mu__0F624AF8">
+      <End Role="municipios" EntitySet="municipios" />
+      <End Role="pacientes" EntitySet="pacientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__quirofano__idpac__151B244E" Association="Self.FK__quirofano__idpac__151B244E">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="quirofano" EntitySet="quirofano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pacientes__idsin__114A936A" Association="Self.FK__pacientes__idsin__114A936A">
+      <End Role="sintomas" EntitySet="sintomas" />
+      <End Role="pacientesintomas" EntitySet="pacientesintomas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pedidoMed__idpro__123EB7A3" Association="Self.FK__pedidoMed__idpro__123EB7A3">
+      <End Role="proveedores" EntitySet="proveedores" />
+      <End Role="pedidoMedicamento" EntitySet="pedidoMedicamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__presentac__iduni__1332DBDC" Association="Self.FK__presentac__iduni__1332DBDC">
+      <End Role="unidades" EntitySet="unidades" />
+      <End Role="presentacionmedicamento" EntitySet="presentacionmedicamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__quirofano__idtip__160F4887" Association="Self.FK__quirofano__idtip__160F4887">
+      <End Role="tipo_operaciones" EntitySet="tipo_operaciones" />
+      <End Role="quirofano" EntitySet="quirofano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuariome__idrol__17F790F9" Association="Self.FK__usuariome__idrol__17F790F9">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="usuariomenu" EntitySet="usuariomenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuarios__idrol__19DFD96B" Association="Self.FK__usuarios__idrol__19DFD96B">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="usuarios" EntitySet="usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

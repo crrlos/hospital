@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="hospitalModelStoreContainer" CdmEntityContainer="hospitalEntities2">
+    <EntitySetMapping Name="altas">
+      <EntityTypeMapping TypeName="hospitalModel.altas">
+        <MappingFragment StoreEntitySet="altas">
+          <ScalarProperty Name="idalta" ColumnName="idalta" />
+          <ScalarProperty Name="idinternado" ColumnName="idinternado" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="area_Laboral">
+      <EntityTypeMapping TypeName="hospitalModel.area_Laboral">
+        <MappingFragment StoreEntitySet="area_Laboral">
+          <ScalarProperty Name="idarealaboral" ColumnName="idarealaboral" />
+          <ScalarProperty Name="nombreArea" ColumnName="nombreArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="camillas">
+      <EntityTypeMapping TypeName="hospitalModel.camillas">
+        <MappingFragment StoreEntitySet="camillas">
+          <ScalarProperty Name="idcamilla" ColumnName="idcamilla" />
+          <ScalarProperty Name="idhabitacion" ColumnName="idhabitacion" />
+          <ScalarProperty Name="numero_camilla" ColumnName="numero_camilla" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cargos">
+      <EntityTypeMapping TypeName="hospitalModel.cargos">
+        <MappingFragment StoreEntitySet="cargos">
+          <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+          <ScalarProperty Name="nombre_cargo" ColumnName="nombre_cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categoria_examen">
+      <EntityTypeMapping TypeName="hospitalModel.categoria_examen">
+        <MappingFragment StoreEntitySet="categoria_examen">
+          <ScalarProperty Name="idcategoria_examen" ColumnName="idcategoria_examen" />
+          <ScalarProperty Name="nombrecategoria" ColumnName="nombrecategoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cita">
+      <EntityTypeMapping TypeName="hospitalModel.cita">
+        <MappingFragment StoreEntitySet="cita">
+          <ScalarProperty Name="idcita" ColumnName="idcita" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="consulta">
+      <EntityTypeMapping TypeName="hospitalModel.consulta">
+        <MappingFragment StoreEntitySet="consulta">
+          <ScalarProperty Name="idconsulta" ColumnName="idconsulta" />
+          <ScalarProperty Name="idmedico" ColumnName="idmedico" />
+          <ScalarProperty Name="sintomas" ColumnName="sintomas" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departamentos">
+      <EntityTypeMapping TypeName="hospitalModel.departamentos">
+        <MappingFragment StoreEntitySet="departamentos">
+          <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+          <ScalarProperty Name="nombredepartamento" ColumnName="nombredepartamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detallemedicamentos_recetados">
+      <EntityTypeMapping TypeName="hospitalModel.detallemedicamentos_recetados">
+        <MappingFragment StoreEntitySet="detallemedicamentos_recetados">
+          <ScalarProperty Name="iddetalle" ColumnName="iddetalle" />
+          <ScalarProperty Name="idIM" ColumnName="idIM" />
+          <ScalarProperty Name="idmedicamentorecetado" ColumnName="idmedicamentorecetado" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="diagnostico">
+      <EntityTypeMapping TypeName="hospitalModel.diagnostico">
+        <MappingFragment StoreEntitySet="diagnostico">
+          <ScalarProperty Name="iddiagnostico" ColumnName="iddiagnostico" />
+          <ScalarProperty Name="idconsulta" ColumnName="idconsulta" />
+          <ScalarProperty Name="idenfermedad" ColumnName="idenfermedad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empleados">
+      <EntityTypeMapping TypeName="hospitalModel.empleados">
+        <MappingFragment StoreEntitySet="empleados">
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="iddepartamento" ColumnName="iddepartamento" />
+          <ScalarProperty Name="idmunicipio" ColumnName="idmunicipio" />
+          <ScalarProperty Name="dui" ColumnName="dui" />
+          <ScalarProperty Name="NIT" ColumnName="NIT" />
+          <ScalarProperty Name="idcargo" ColumnName="idcargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="encargados_de_laboratorio">
+      <EntityTypeMapping TypeName="hospitalModel.encargados_de_laboratorio">
+        <MappingFragment StoreEntitySet="encargados_de_laboratorio">
+          <ScalarProperty Name="idencargado" ColumnName="idencargado" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="JVPLC" ColumnName="JVPLC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="encargadosdefarmacia">
+      <EntityTypeMapping TypeName="hospitalModel.encargadosdefarmacia">
+        <MappingFragment StoreEntitySet="encargadosdefarmacia">
+          <ScalarProperty Name="idencargadodefarmacia" ColumnName="idencargadodefarmacia" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enfermedades">
+      <EntityTypeMapping TypeName="hospitalModel.enfermedades">
+        <MappingFragment StoreEntitySet="enfermedades">
+          <ScalarProperty Name="idenfermedad" ColumnName="idenfermedad" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="examenes">
+      <EntityTypeMapping TypeName="hospitalModel.examenes">
+        <MappingFragment StoreEntitySet="examenes">
+          <ScalarProperty Name="idexamenes" ColumnName="idexamenes" />
+          <ScalarProperty Name="idsubcategoriaexamen" ColumnName="idsubcategoriaexamen" />
+          <ScalarProperty Name="resultadoanalisis" ColumnName="resultadoanalisis" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="idencargadolaboratorio" ColumnName="idencargadolaboratorio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="examenespendientes">
+      <EntityTypeMapping TypeName="hospitalModel.examenespendientes">
+        <MappingFragment StoreEntitySet="examenespendientes">
+          <ScalarProperty Name="idexamen" ColumnName="idexamen" />
+          <ScalarProperty Name="idsubcategoria" ColumnName="idsubcategoria" />
+          <ScalarProperty Name="resultado_del_analisis" ColumnName="resultado_del_analisis" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="idencargadolab" ColumnName="idencargadolab" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="expediente">
+      <EntityTypeMapping TypeName="hospitalModel.expediente">
+        <MappingFragment StoreEntitySet="expediente">
+          <ScalarProperty Name="idexpediente" ColumnName="idexpediente" />
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+          <ScalarProperty Name="idconsulta" ColumnName="idconsulta" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fallecidos">
+      <EntityTypeMapping TypeName="hospitalModel.fallecidos">
+        <MappingFragment StoreEntitySet="fallecidos">
+          <ScalarProperty Name="idfallecido" ColumnName="idfallecido" />
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="idenfermedad" ColumnName="idenfermedad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="habitaciones">
+      <EntityTypeMapping TypeName="hospitalModel.habitaciones">
+        <MappingFragment StoreEntitySet="habitaciones">
+          <ScalarProperty Name="idhabitacion" ColumnName="idhabitacion" />
+          <ScalarProperty Name="numerodepiso" ColumnName="numerodepiso" />
+          <ScalarProperty Name="numero_de_habitacion" ColumnName="numero_de_habitacion" />
+          <ScalarProperty Name="tipo_de_habitacion" ColumnName="tipo_de_habitacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="horariosempleados">
+      <EntityTypeMapping TypeName="hospitalModel.horariosempleados">
+        <MappingFragment StoreEntitySet="horariosempleados">
+          <ScalarProperty Name="idhorario" ColumnName="idhorario" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="horaentrada" ColumnName="horaentrada" />
+          <ScalarProperty Name="horasalida" ColumnName="horasalida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="internados">
+      <EntityTypeMapping TypeName="hospitalModel.internados">
+        <MappingFragment StoreEntitySet="internados">
+          <ScalarProperty Name="idinternado" ColumnName="idinternado" />
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+          <ScalarProperty Name="fecha_de_ingreso" ColumnName="fecha_de_ingreso" />
+          <ScalarProperty Name="idcamilla" ColumnName="idcamilla" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inventario_medicamentos">
+      <EntityTypeMapping TypeName="hospitalModel.inventario_medicamentos">
+        <MappingFragment StoreEntitySet="inventario_medicamentos">
+          <ScalarProperty Name="idIM" ColumnName="idIM" />
+          <ScalarProperty Name="nombreMedicamento" ColumnName="nombreMedicamento" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="idpresentacion" ColumnName="idpresentacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="laboratorio">
+      <EntityTypeMapping TypeName="hospitalModel.laboratorio">
+        <MappingFragment StoreEntitySet="laboratorio">
+          <ScalarProperty Name="idlab" ColumnName="idlab" />
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idexamenes" ColumnName="idexamenes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medicamentos_entregados">
+      <EntityTypeMapping TypeName="hospitalModel.medicamentos_entregados">
+        <MappingFragment StoreEntitySet="medicamentos_entregados">
+          <ScalarProperty Name="idmedicamentosentregados" ColumnName="idmedicamentosentregados" />
+          <ScalarProperty Name="idmedicamentorecetado" ColumnName="idmedicamentorecetado" />
+          <ScalarProperty Name="idencargadofarmacia" ColumnName="idencargadofarmacia" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medicamentosentregados">
+      <EntityTypeMapping TypeName="hospitalModel.medicamentosentregados">
+        <MappingFragment StoreEntitySet="medicamentosentregados">
+          <ScalarProperty Name="idmedicamentosentregados" ColumnName="idmedicamentosentregados" />
+          <ScalarProperty Name="idmedicamentosrecetado" ColumnName="idmedicamentosrecetado" />
+          <ScalarProperty Name="idencargadodefarmacia" ColumnName="idencargadodefarmacia" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medicamentosrecetados">
+      <EntityTypeMapping TypeName="hospitalModel.medicamentosrecetados">
+        <MappingFragment StoreEntitySet="medicamentosrecetados">
+          <ScalarProperty Name="idmedicamentorecetado" ColumnName="idmedicamentorecetado" />
+          <ScalarProperty Name="idconsulta" ColumnName="idconsulta" />
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medicos">
+      <EntityTypeMapping TypeName="hospitalModel.medicos">
+        <MappingFragment StoreEntitySet="medicos">
+          <ScalarProperty Name="idmedico" ColumnName="idmedico" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+          <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+          <ScalarProperty Name="JVPM" ColumnName="JVPM" />
+          <ScalarProperty Name="id_arealaboral" ColumnName="id_arealaboral" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="menu">
+      <EntityTypeMapping TypeName="hospitalModel.menu">
+        <MappingFragment StoreEntitySet="menu">
+          <ScalarProperty Name="idmenu" ColumnName="idmenu" />
+          <ScalarProperty Name="menu1" ColumnName="menu" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="municipios">
+      <EntityTypeMapping TypeName="hospitalModel.municipios">
+        <MappingFragment StoreEntitySet="municipios">
+          <ScalarProperty Name="idmunicipio" ColumnName="idmunicipio" />
+          <ScalarProperty Name="nombremunicipio" ColumnName="nombremunicipio" />
+          <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pacientes">
+      <EntityTypeMapping TypeName="hospitalModel.pacientes">
+        <MappingFragment StoreEntitySet="pacientes">
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="dui" ColumnName="dui" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+          <ScalarProperty Name="id_municipio" ColumnName="id_municipio" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="genero" ColumnName="genero" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="nombreencargado" ColumnName="nombreencargado" />
+          <ScalarProperty Name="apellidoencargado" ColumnName="apellidoencargado" />
+          <ScalarProperty Name="duiencargado" ColumnName="duiencargado" />
+          <ScalarProperty Name="telefono_encargado" ColumnName="telefono_encargado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="presentacionmedicamentos">
+      <EntityTypeMapping TypeName="hospitalModel.presentacionmedicamentos">
+        <MappingFragment StoreEntitySet="presentacionmedicamentos">
+          <ScalarProperty Name="idpresentacion" ColumnName="idpresentacion" />
+          <ScalarProperty Name="tipo_presentacion" ColumnName="tipo_presentacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="quirofano">
+      <EntityTypeMapping TypeName="hospitalModel.quirofano">
+        <MappingFragment StoreEntitySet="quirofano">
+          <ScalarProperty Name="idquirofano" ColumnName="idquirofano" />
+          <ScalarProperty Name="operacion_realizada" ColumnName="operacion_realizada" />
+          <ScalarProperty Name="idmedico" ColumnName="idmedico" />
+          <ScalarProperty Name="idpaciente" ColumnName="idpaciente" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="idtipo_operacion" ColumnName="idtipo_operacion" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="hospitalModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="idrol" ColumnName="idrol" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subcategoria_examen">
+      <EntityTypeMapping TypeName="hospitalModel.subcategoria_examen">
+        <MappingFragment StoreEntitySet="subcategoria_examen">
+          <ScalarProperty Name="idsubcategoria_examen" ColumnName="idsubcategoria_examen" />
+          <ScalarProperty Name="nombre_subcategoria" ColumnName="nombre_subcategoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_operaciones">
+      <EntityTypeMapping TypeName="hospitalModel.tipo_operaciones">
+        <MappingFragment StoreEntitySet="tipo_operaciones">
+          <ScalarProperty Name="idtipo_operaciones" ColumnName="idtipo_operaciones" />
+          <ScalarProperty Name="tipo_operacion" ColumnName="tipo_operacion" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuariomenu">
+      <EntityTypeMapping TypeName="hospitalModel.usuariomenu">
+        <MappingFragment StoreEntitySet="usuariomenu">
+          <ScalarProperty Name="idusuariomenu" ColumnName="idusuariomenu" />
+          <ScalarProperty Name="idrol" ColumnName="idrol" />
+          <ScalarProperty Name="idmenu" ColumnName="idmenu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="hospitalModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="idrol" ColumnName="idrol" />
+          <ScalarProperty Name="idempleado" ColumnName="idempleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

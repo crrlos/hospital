@@ -1,0 +1,909 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DDEC8869-DB4F-41AA-99FD-91850F2D052A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hospital</RootNamespace>
+    <AssemblyName>Hospital</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\toni\Desktop\HOSPITAL\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>\\\TONIPC\\DESKTOP\\HOSPITAL\</InstallUrl>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>hospital_red_2_48.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B834565B16BEF1D25FCA933389ECBFD08E1A377A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Hospital_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="IrisSkin2">
+      <HintPath>..\..\Componentes Graficos Vb2\Componentes Graficos Vb2\SKIN NET 2010 WIN 7\SkinVS.NET\IrisSkin2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\..\Escritorio\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgregarAInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarAInventario.Designer.cs">
+      <DependentUpon>AgregarAInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarEmpleadoMedico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarEmpleadoMedico.Designer.cs">
+      <DependentUpon>AgregarEmpleadoMedico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Altas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Altas.Designer.cs">
+      <DependentUpon>Altas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Area_Laboral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Area_Laboral.Designer.cs">
+      <DependentUpon>Area_Laboral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarEmpleado.Designer.cs">
+      <DependentUpon>BuscarEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="buscarEnfermedades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buscarEnfermedades.Designer.cs">
+      <DependentUpon>buscarEnfermedades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Camillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Camillas.Designer.cs">
+      <DependentUpon>Camillas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cantidadInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cantidadInventario.Designer.cs">
+      <DependentUpon>cantidadInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cita.Designer.cs">
+      <DependentUpon>Cita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="combito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="combito.Designer.cs">
+      <DependentUpon>combito.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComplementoReceta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComplementoReceta.Designer.cs">
+      <DependentUpon>ComplementoReceta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Conexion\Model.cs" />
+    <Compile Include="Consulta Visor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta Visor.Designer.cs">
+      <DependentUpon>Consulta Visor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta.Designer.cs">
+      <DependentUpon>Consulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controladores\ControladorAreaLaboral.cs" />
+    <Compile Include="Controladores\ControladorCargo.cs" />
+    <Compile Include="Controladores\ControladorConsulta.cs" />
+    <Compile Include="Controladores\ControladorDepartamentos.cs" />
+    <Compile Include="Controladores\ControladorEmpleado.cs" />
+    <Compile Include="Controladores\ControladorEnfermedades.cs" />
+    <Compile Include="Controladores\ControladorEspecialidMedica.cs" />
+    <Compile Include="Controladores\ControladorExamenes.cs" />
+    <Compile Include="Controladores\ControladorInventarioMedicamentos.cs" />
+    <Compile Include="Controladores\ControladorInventarios.cs" />
+    <Compile Include="Controladores\ControladorLaboratoriosFarma.cs" />
+    <Compile Include="Controladores\ControladorLote.cs" />
+    <Compile Include="Controladores\Controladormedicamentorecetado.cs" />
+    <Compile Include="Controladores\ControladorMedicamentos.cs" />
+    <Compile Include="Controladores\ControladorMedicos.cs" />
+    <Compile Include="Controladores\ControladorMenu.cs" />
+    <Compile Include="Controladores\ControladorMunicipio.cs" />
+    <Compile Include="Controladores\ControladorPacientes.cs" />
+    <Compile Include="Controladores\ControladorPresentacion.cs" />
+    <Compile Include="Controladores\ControladorRoles.cs" />
+    <Compile Include="Controladores\ControladorSintomas.cs" />
+    <Compile Include="Controladores\ControladorUnidadmedida.cs" />
+    <Compile Include="Controladores\ControladorUsuario.cs" />
+    <Compile Include="buscarSintomas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="buscarSintomas.Designer.cs">
+      <DependentUpon>buscarSintomas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmpleadosRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmpleadosRegistro.Designer.cs">
+      <DependentUpon>EmpleadosRegistro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Encargados_de_Farmacia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Encargados_de_Farmacia.Designer.cs">
+      <DependentUpon>Encargados_de_Farmacia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Encargados_de_Laboratorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Encargados_de_Laboratorio.Designer.cs">
+      <DependentUpon>Encargados_de_Laboratorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Encryptar.cs" />
+    <Compile Include="Enfermedades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enfermedades.Designer.cs">
+      <DependentUpon>Enfermedades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Examenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Examenes.Designer.cs">
+      <DependentUpon>Examenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExamenesPendientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamenesPendientes.Designer.cs">
+      <DependentUpon>ExamenesPendientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fallecidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fallecidos.Designer.cs">
+      <DependentUpon>Fallecidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="habitaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="habitaciones.Designer.cs">
+      <DependentUpon>habitaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Horarios_Empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Horarios_Empleados.Designer.cs">
+      <DependentUpon>Horarios_Empleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Internados.Designer.cs">
+      <DependentUpon>Internados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListadeMedicamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadeMedicamentos.Designer.cs">
+      <DependentUpon>ListadeMedicamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaMedicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaMedicos.Designer.cs">
+      <DependentUpon>ListaMedicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaPacientes.Designer.cs">
+      <DependentUpon>ListaPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaUsuarios.Designer.cs">
+      <DependentUpon>ListaUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoteMedicamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoteMedicamentos.Designer.cs">
+      <DependentUpon>LoteMedicamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarMedicamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarMedicamentos.Designer.cs">
+      <DependentUpon>AgregarMedicamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicamentosDisponibles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicamentosDisponibles.Designer.cs">
+      <DependentUpon>MedicamentosDisponibles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicamentosEntregados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicamentosEntregados.Designer.cs">
+      <DependentUpon>MedicamentosEntregados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicamentosRecetados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicamentosRecetados.Designer.cs">
+      <DependentUpon>MedicamentosRecetados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menus.Designer.cs">
+      <DependentUpon>Menus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\altas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\area_Laboral.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\camillas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\cargos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\categoria_examen.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\cita.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\consulta.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\departamentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\detallemedicamentos_recetados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\DetallePedido.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\diagnostico.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\empleados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\encargadosdefarmacia.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\encargados_de_laboratorio.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\enfermedades.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\especialidadmedicos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\estadoDelPedido.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\examenes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\examenespendientes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\expediente.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\fallecidos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\habitaciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\horariosempleados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\internados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\InventarioMedicamentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\inventario_medicamentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\laboratorios_farmaceuticos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Lote_Medicamentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Medicamentos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\medicamentosrecetados.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\medicos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\menu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\municipios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\pacientes.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\pacientesintomas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\pedidoMedicamento.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\presentacionmedicamento.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\proveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\quirofano.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\roles.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\sintomas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\sinversion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\subcategoria_examen.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\tipo_operaciones.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\unidades.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\usuariomenu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\usuarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelo\viaAdministracion.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MostrarConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MostrarConsulta.Designer.cs">
+      <DependentUpon>MostrarConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MostrarInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MostrarInventario.Designer.cs">
+      <DependentUpon>MostrarInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mostrar_Médicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mostrar_Médicos.Designer.cs">
+      <DependentUpon>Mostrar_Médicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlantillaMédicos-NOELIMINAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlantillaMédicos-NOELIMINAR.Designer.cs">
+      <DependentUpon>PlantillaMédicos-NOELIMINAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProveedoresMedicamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProveedoresMedicamentos.Designer.cs">
+      <DependentUpon>ProveedoresMedicamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pruebagrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pruebagrid.Designer.cs">
+      <DependentUpon>pruebagrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroPacientes.Designer.cs">
+      <DependentUpon>RegistroPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporte.Designer.cs">
+      <DependentUpon>Reporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\reporte.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporte.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SeleccionarEnfermedades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionarEnfermedades.Designer.cs">
+      <DependentUpon>SeleccionarEnfermedades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionarPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionarPacientes.Designer.cs">
+      <DependentUpon>SeleccionarPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal2.Designer.cs">
+      <DependentUpon>Principal2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quirofano.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Quirofano.Designer.cs">
+      <DependentUpon>Quirofano.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Roles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles.Designer.cs">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seleccionar_EncargadosLab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seleccionar_EncargadosLab.Designer.cs">
+      <DependentUpon>Seleccionar_EncargadosLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SingleUser.cs" />
+    <Compile Include="Sintomas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sintomas.Designer.cs">
+      <DependentUpon>Sintomas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubcategoriasExamen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubcategoriasExamen.Designer.cs">
+      <DependentUpon>SubcategoriasExamen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TipoOperaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TipoOperaciones.Designer.cs">
+      <DependentUpon>TipoOperaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Validaciones\Validar.cs" />
+    <EmbeddedResource Include="AgregarAInventario.resx">
+      <DependentUpon>AgregarAInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarEmpleadoMedico.resx">
+      <DependentUpon>AgregarEmpleadoMedico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Altas.resx">
+      <DependentUpon>Altas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Area_Laboral.resx">
+      <DependentUpon>Area_Laboral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarEmpleado.resx">
+      <DependentUpon>BuscarEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="buscarEnfermedades.resx">
+      <DependentUpon>buscarEnfermedades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Camillas.resx">
+      <DependentUpon>Camillas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cantidadInventario.resx">
+      <DependentUpon>cantidadInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cita.resx">
+      <DependentUpon>Cita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="combito.resx">
+      <DependentUpon>combito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComplementoReceta.resx">
+      <DependentUpon>ComplementoReceta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consulta Visor.resx">
+      <DependentUpon>Consulta Visor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consulta.resx">
+      <DependentUpon>Consulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="buscarSintomas.resx">
+      <DependentUpon>buscarSintomas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmpleadosRegistro.resx">
+      <DependentUpon>EmpleadosRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encargados_de_Farmacia.resx">
+      <DependentUpon>Encargados_de_Farmacia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encargados_de_Laboratorio.resx">
+      <DependentUpon>Encargados_de_Laboratorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enfermedades.resx">
+      <DependentUpon>Enfermedades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Examenes.resx">
+      <DependentUpon>Examenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamenesPendientes.resx">
+      <DependentUpon>ExamenesPendientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fallecidos.resx">
+      <DependentUpon>Fallecidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="habitaciones.resx">
+      <DependentUpon>habitaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internados.resx">
+      <DependentUpon>Internados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadeMedicamentos.resx">
+      <DependentUpon>ListadeMedicamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaMedicos.resx">
+      <DependentUpon>ListaMedicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaPacientes.resx">
+      <DependentUpon>ListaPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaUsuarios.resx">
+      <DependentUpon>ListaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoteMedicamentos.resx">
+      <DependentUpon>LoteMedicamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarMedicamentos.resx">
+      <DependentUpon>AgregarMedicamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicamentosDisponibles.resx">
+      <DependentUpon>MedicamentosDisponibles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menus.resx">
+      <DependentUpon>Menus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MostrarConsulta.resx">
+      <DependentUpon>MostrarConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MostrarInventario.resx">
+      <DependentUpon>MostrarInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mostrar_Médicos.resx">
+      <DependentUpon>Mostrar_Médicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlantillaMédicos-NOELIMINAR.resx">
+      <DependentUpon>PlantillaMédicos-NOELIMINAR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProveedoresMedicamentos.resx">
+      <DependentUpon>ProveedoresMedicamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pruebagrid.resx">
+      <DependentUpon>pruebagrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistroPacientes.resx">
+      <DependentUpon>RegistroPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte.resx">
+      <DependentUpon>Reporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reporte.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporte.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionarEnfermedades.resx">
+      <DependentUpon>SeleccionarEnfermedades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionarPacientes.resx">
+      <DependentUpon>SeleccionarPacientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal2.resx">
+      <DependentUpon>Principal2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Quirofano.resx">
+      <DependentUpon>Quirofano.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles.resx">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seleccionar_EncargadosLab.resx">
+      <DependentUpon>Seleccionar_EncargadosLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sintomas.resx">
+      <DependentUpon>Sintomas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubcategoriasExamen.resx">
+      <DependentUpon>SubcategoriasExamen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Config" />
+    <None Include="Hospital_ClaveTemporal.pfx" />
+    <EntityDeploy Include="Modelo\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Modelo\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Modelo\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="Modelo\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Reportes\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Hospital.ServiceReference1.dato.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Hospital.ServiceReference1.dbSintomasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Hospital.ServiceReference1.dereResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Hospital.ServiceReference1.getVersionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Hospital.ServiceReference1.listaEnfermedadesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Hospital.ServiceReference1.operationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Hospital.ServiceReference1.OtroResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Hospital.ServiceReference1.resultado.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\Hospital.ServiceReference1.sintomas.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServiceReference1\servicio.wsdl" />
+    <None Include="Service References\ServiceReference1\servicio.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hospital_red_2_48.ico" />
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="hospitalModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="hospitalEntities2" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="altas" EntityType="hospitalModel.altas" />
+    <EntitySet Name="area_Laboral" EntityType="hospitalModel.area_Laboral" />
+    <EntitySet Name="camillas" EntityType="hospitalModel.camillas" />
+    <EntitySet Name="cargos" EntityType="hospitalModel.cargos" />
+    <EntitySet Name="categoria_examen" EntityType="hospitalModel.categoria_examen" />
+    <EntitySet Name="cita" EntityType="hospitalModel.cita" />
+    <EntitySet Name="consulta" EntityType="hospitalModel.consulta" />
+    <EntitySet Name="departamentos" EntityType="hospitalModel.departamentos" />
+    <EntitySet Name="detallemedicamentos_recetados" EntityType="hospitalModel.detallemedicamentos_recetados" />
+    <EntitySet Name="diagnostico" EntityType="hospitalModel.diagnostico" />
+    <EntitySet Name="empleados" EntityType="hospitalModel.empleados" />
+    <EntitySet Name="encargados_de_laboratorio" EntityType="hospitalModel.encargados_de_laboratorio" />
+    <EntitySet Name="encargadosdefarmacia" EntityType="hospitalModel.encargadosdefarmacia" />
+    <EntitySet Name="enfermedades" EntityType="hospitalModel.enfermedades" />
+    <EntitySet Name="examenes" EntityType="hospitalModel.examenes" />
+    <EntitySet Name="examenespendientes" EntityType="hospitalModel.examenespendientes" />
+    <EntitySet Name="expediente" EntityType="hospitalModel.expediente" />
+    <EntitySet Name="fallecidos" EntityType="hospitalModel.fallecidos" />
+    <EntitySet Name="habitaciones" EntityType="hospitalModel.habitaciones" />
+    <EntitySet Name="horariosempleados" EntityType="hospitalModel.horariosempleados" />
+    <EntitySet Name="internados" EntityType="hospitalModel.internados" />
+    <EntitySet Name="inventario_medicamentos" EntityType="hospitalModel.inventario_medicamentos" />
+    <EntitySet Name="laboratorio" EntityType="hospitalModel.laboratorio" />
+    <EntitySet Name="medicamentos_entregados" EntityType="hospitalModel.medicamentos_entregados" />
+    <EntitySet Name="medicamentosentregados" EntityType="hospitalModel.medicamentosentregados" />
+    <EntitySet Name="medicamentosrecetados" EntityType="hospitalModel.medicamentosrecetados" />
+    <EntitySet Name="medicos" EntityType="hospitalModel.medicos" />
+    <EntitySet Name="menu" EntityType="hospitalModel.menu" />
+    <EntitySet Name="municipios" EntityType="hospitalModel.municipios" />
+    <EntitySet Name="pacientes" EntityType="hospitalModel.pacientes" />
+    <EntitySet Name="presentacionmedicamentos" EntityType="hospitalModel.presentacionmedicamentos" />
+    <EntitySet Name="quirofano" EntityType="hospitalModel.quirofano" />
+    <EntitySet Name="roles" EntityType="hospitalModel.roles" />
+    <EntitySet Name="subcategoria_examen" EntityType="hospitalModel.subcategoria_examen" />
+    <EntitySet Name="tipo_operaciones" EntityType="hospitalModel.tipo_operaciones" />
+    <EntitySet Name="usuariomenu" EntityType="hospitalModel.usuariomenu" />
+    <EntitySet Name="usuarios" EntityType="hospitalModel.usuarios" />
+    <AssociationSet Name="FK__altas__idinterna__5629CD9C" Association="hospitalModel.FK__altas__idinterna__5629CD9C">
+      <End Role="internados" EntitySet="internados" />
+      <End Role="altas" EntitySet="altas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicos__id_area__74AE54BC" Association="hospitalModel.FK__medicos__id_area__74AE54BC">
+      <End Role="area_Laboral" EntitySet="area_Laboral" />
+      <End Role="medicos" EntitySet="medicos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__camillas__idhabi__571DF1D5" Association="hospitalModel.FK__camillas__idhabi__571DF1D5">
+      <End Role="habitaciones" EntitySet="habitaciones" />
+      <End Role="camillas" EntitySet="camillas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__internado__idcam__6B24EA82" Association="hospitalModel.FK__internado__idcam__6B24EA82">
+      <End Role="camillas" EntitySet="camillas" />
+      <End Role="internados" EntitySet="internados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__empleados__idcar__5DCAEF64" Association="hospitalModel.FK__empleados__idcar__5DCAEF64">
+      <End Role="cargos" EntitySet="cargos" />
+      <End Role="empleados" EntitySet="empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cita__idpaciente__5812160E" Association="hospitalModel.FK__cita__idpaciente__5812160E">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="cita" EntitySet="cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__consulta__idmedi__59063A47" Association="hospitalModel.FK__consulta__idmedi__59063A47">
+      <End Role="medicos" EntitySet="medicos" />
+      <End Role="consulta" EntitySet="consulta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__diagnosti__idcon__5BE2A6F2" Association="hospitalModel.FK__diagnosti__idcon__5BE2A6F2">
+      <End Role="consulta" EntitySet="consulta" />
+      <End Role="diagnostico" EntitySet="diagnostico" />
+    </AssociationSet>
+    <AssociationSet Name="FK__expedient__idcon__66603565" Association="hospitalModel.FK__expedient__idcon__66603565">
+      <End Role="consulta" EntitySet="consulta" />
+      <End Role="expediente" EntitySet="expediente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicamen__idcon__72C60C4A" Association="hospitalModel.FK__medicamen__idcon__72C60C4A">
+      <End Role="consulta" EntitySet="consulta" />
+      <End Role="medicamentosrecetados" EntitySet="medicamentosrecetados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__empleados__iddep__5EBF139D" Association="hospitalModel.FK__empleados__iddep__5EBF139D">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="empleados" EntitySet="empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__municipio__id_de__76969D2E" Association="hospitalModel.FK__municipio__id_de__76969D2E">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="municipios" EntitySet="municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pacientes__id_de__778AC167" Association="hospitalModel.FK__pacientes__id_de__778AC167">
+      <End Role="departamentos" EntitySet="departamentos" />
+      <End Role="pacientes" EntitySet="pacientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__detalleme__idmed__59FA5E80" Association="hospitalModel.FK__detalleme__idmed__59FA5E80">
+      <End Role="medicamentosrecetados" EntitySet="medicamentosrecetados" />
+      <End Role="detallemedicamentos_recetados" EntitySet="detallemedicamentos_recetados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__detallemed__idIM__5AEE82B9" Association="hospitalModel.FK__detallemed__idIM__5AEE82B9">
+      <End Role="inventario_medicamentos" EntitySet="inventario_medicamentos" />
+      <End Role="detallemedicamentos_recetados" EntitySet="detallemedicamentos_recetados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__diagnosti__idenf__5CD6CB2B" Association="hospitalModel.FK__diagnosti__idenf__5CD6CB2B">
+      <End Role="enfermedades" EntitySet="enfermedades" />
+      <End Role="diagnostico" EntitySet="diagnostico" />
+    </AssociationSet>
+    <AssociationSet Name="FK__empleados__idmun__5FB337D6" Association="hospitalModel.FK__empleados__idmun__5FB337D6">
+      <End Role="municipios" EntitySet="municipios" />
+      <End Role="empleados" EntitySet="empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__encargado__idemp__60A75C0F" Association="hospitalModel.FK__encargado__idemp__60A75C0F">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="encargados_de_laboratorio" EntitySet="encargados_de_laboratorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__encargado__idemp__619B8048" Association="hospitalModel.FK__encargado__idemp__619B8048">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="encargadosdefarmacia" EntitySet="encargadosdefarmacia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__horariose__idemp__6A30C649" Association="hospitalModel.FK__horariose__idemp__6A30C649">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="horariosempleados" EntitySet="horariosempleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicos__idemple__75A278F5" Association="hospitalModel.FK__medicos__idemple__75A278F5">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="medicos" EntitySet="medicos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuarios__idempl__7E37BEF6" Association="hospitalModel.FK__usuarios__idempl__7E37BEF6">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="usuarios" EntitySet="usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__examenes__idenca__628FA481" Association="hospitalModel.FK__examenes__idenca__628FA481">
+      <End Role="encargados_de_laboratorio" EntitySet="encargados_de_laboratorio" />
+      <End Role="examenes" EntitySet="examenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__examenesp__idenc__6477ECF3" Association="hospitalModel.FK__examenesp__idenc__6477ECF3">
+      <End Role="encargados_de_laboratorio" EntitySet="encargados_de_laboratorio" />
+      <End Role="examenespendientes" EntitySet="examenespendientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicamen__idenc__6FE99F9F" Association="hospitalModel.FK__medicamen__idenc__6FE99F9F">
+      <End Role="encargadosdefarmacia" EntitySet="encargadosdefarmacia" />
+      <End Role="medicamentos_entregados" EntitySet="medicamentos_entregados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicamen__idenc__70DDC3D8" Association="hospitalModel.FK__medicamen__idenc__70DDC3D8">
+      <End Role="encargadosdefarmacia" EntitySet="encargadosdefarmacia" />
+      <End Role="medicamentosentregados" EntitySet="medicamentosentregados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__fallecido__idenf__68487DD7" Association="hospitalModel.FK__fallecido__idenf__68487DD7">
+      <End Role="enfermedades" EntitySet="enfermedades" />
+      <End Role="fallecidos" EntitySet="fallecidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__examenes__idsubc__6383C8BA" Association="hospitalModel.FK__examenes__idsubc__6383C8BA">
+      <End Role="subcategoria_examen" EntitySet="subcategoria_examen" />
+      <End Role="examenes" EntitySet="examenes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__examenesp__idsub__656C112C" Association="hospitalModel.FK__examenesp__idsub__656C112C">
+      <End Role="subcategoria_examen" EntitySet="subcategoria_examen" />
+      <End Role="examenespendientes" EntitySet="examenespendientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__laborator__idexa__6E01572D" Association="hospitalModel.FK__laborator__idexa__6E01572D">
+      <End Role="examenespendientes" EntitySet="examenespendientes" />
+      <End Role="laboratorio" EntitySet="laboratorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__expedient__idpac__6754599E" Association="hospitalModel.FK__expedient__idpac__6754599E">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="expediente" EntitySet="expediente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__fallecido__idpac__693CA210" Association="hospitalModel.FK__fallecido__idpac__693CA210">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="fallecidos" EntitySet="fallecidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__internado__idpac__6C190EBB" Association="hospitalModel.FK__internado__idpac__6C190EBB">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="internados" EntitySet="internados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__inventari__idpre__6D0D32F4" Association="hospitalModel.FK__inventari__idpre__6D0D32F4">
+      <End Role="presentacionmedicamentos" EntitySet="presentacionmedicamentos" />
+      <End Role="inventario_medicamentos" EntitySet="inventario_medicamentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__laborator__idpac__6EF57B66" Association="hospitalModel.FK__laborator__idpac__6EF57B66">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="laboratorio" EntitySet="laboratorio" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicamen__idmed__71D1E811" Association="hospitalModel.FK__medicamen__idmed__71D1E811">
+      <End Role="medicamentosrecetados" EntitySet="medicamentosrecetados" />
+      <End Role="medicamentosentregados" EntitySet="medicamentosentregados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__medicamen__idpac__73BA3083" Association="hospitalModel.FK__medicamen__idpac__73BA3083">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="medicamentosrecetados" EntitySet="medicamentosrecetados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__quirofano__idmed__797309D9" Association="hospitalModel.FK__quirofano__idmed__797309D9">
+      <End Role="medicos" EntitySet="medicos" />
+      <End Role="quirofano" EntitySet="quirofano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuariome__idmen__7C4F7684" Association="hospitalModel.FK__usuariome__idmen__7C4F7684">
+      <End Role="menu" EntitySet="menu" />
+      <End Role="usuariomenu" EntitySet="usuariomenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__pacientes__id_mu__787EE5A0" Association="hospitalModel.FK__pacientes__id_mu__787EE5A0">
+      <End Role="municipios" EntitySet="municipios" />
+      <End Role="pacientes" EntitySet="pacientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__quirofano__idpac__7A672E12" Association="hospitalModel.FK__quirofano__idpac__7A672E12">
+      <End Role="pacientes" EntitySet="pacientes" />
+      <End Role="quirofano" EntitySet="quirofano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__quirofano__idtip__7B5B524B" Association="hospitalModel.FK__quirofano__idtip__7B5B524B">
+      <End Role="tipo_operaciones" EntitySet="tipo_operaciones" />
+      <End Role="quirofano" EntitySet="quirofano" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuariome__idrol__7D439ABD" Association="hospitalModel.FK__usuariome__idrol__7D439ABD">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="usuariomenu" EntitySet="usuariomenu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__usuarios__idrol__7F2BE32F" Association="hospitalModel.FK__usuarios__idrol__7F2BE32F">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="usuarios" EntitySet="usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="altas">
+    <Key>
+      <PropertyRef Name="idalta" />
+    </Key>
+    <Property Name="idalta" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idinternado" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="observaciones" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="internados" Relationship="hospitalModel.FK__altas__idinterna__5629CD9C" FromRole="altas" ToRole="internados" />
+  </EntityType>
+  <EntityType Name="area_Laboral">
+    <Key>
+      <PropertyRef Name="idarealaboral" />
+    </Key>
+    <Property Name="idarealaboral" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreArea" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="medicos" Relationship="hospitalModel.FK__medicos__id_area__74AE54BC" FromRole="area_Laboral" ToRole="medicos" />
+  </EntityType>
+  <EntityType Name="camillas">
+    <Key>
+      <PropertyRef Name="idcamilla" />
+    </Key>
+    <Property Name="idcamilla" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idhabitacion" Type="Int32" Nullable="false" />
+    <Property Name="numero_camilla" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="habitaciones" Relationship="hospitalModel.FK__camillas__idhabi__571DF1D5" FromRole="camillas" ToRole="habitaciones" />
+    <NavigationProperty Name="internados" Relationship="hospitalModel.FK__internado__idcam__6B24EA82" FromRole="camillas" ToRole="internados" />
+  </EntityType>
+  <EntityType Name="cargos">
+    <Key>
+      <PropertyRef Name="idcargo" />
+    </Key>
+    <Property Name="idcargo" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_cargo" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="empleados" Relationship="hospitalModel.FK__empleados__idcar__5DCAEF64" FromRole="cargos" ToRole="empleados" />
+  </EntityType>
+  <EntityType Name="categoria_examen">
+    <Key>
+      <PropertyRef Name="idcategoria_examen" />
+    </Key>
+    <Property Name="idcategoria_examen" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombrecategoria" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="cita">
+    <Key>
+      <PropertyRef Name="idcita" />
+    </Key>
+    <Property Name="idcita" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="hora" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="observaciones" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="pacientes" Relationship="hospitalModel.FK__cita__idpaciente__5812160E" FromRole="cita" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="consulta">
+    <Key>
+      <PropertyRef Name="idconsulta" />
+    </Key>
+    <Property Name="idconsulta" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idmedico" Type="Int32" Nullable="false" />
+    <Property Name="sintomas" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="observaciones" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="medicos" Relationship="hospitalModel.FK__consulta__idmedi__59063A47" FromRole="consulta" ToRole="medicos" />
+    <NavigationProperty Name="diagnostico" Relationship="hospitalModel.FK__diagnosti__idcon__5BE2A6F2" FromRole="consulta" ToRole="diagnostico" />
+    <NavigationProperty Name="expediente" Relationship="hospitalModel.FK__expedient__idcon__66603565" FromRole="consulta" ToRole="expediente" />
+    <NavigationProperty Name="medicamentosrecetados" Relationship="hospitalModel.FK__medicamen__idcon__72C60C4A" FromRole="consulta" ToRole="medicamentosrecetados" />
+  </EntityType>
+  <EntityType Name="departamentos">
+    <Key>
+      <PropertyRef Name="id_departamento" />
+    </Key>
+    <Property Name="id_departamento" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombredepartamento" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="empleados" Relationship="hospitalModel.FK__empleados__iddep__5EBF139D" FromRole="departamentos" ToRole="empleados" />
+    <NavigationProperty Name="municipios" Relationship="hospitalModel.FK__municipio__id_de__76969D2E" FromRole="departamentos" ToRole="municipios" />
+    <NavigationProperty Name="pacientes" Relationship="hospitalModel.FK__pacientes__id_de__778AC167" FromRole="departamentos" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="detallemedicamentos_recetados">
+    <Key>
+      <PropertyRef Name="iddetalle" />
+    </Key>
+    <Property Name="iddetalle" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idIM" Type="Int32" Nullable="false" />
+    <Property Name="idmedicamentorecetado" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="medicamentosrecetados" Relationship="hospitalModel.FK__detalleme__idmed__59FA5E80" FromRole="detallemedicamentos_recetados" ToRole="medicamentosrecetados" />
+    <NavigationProperty Name="inventario_medicamentos" Relationship="hospitalModel.FK__detallemed__idIM__5AEE82B9" FromRole="detallemedicamentos_recetados" ToRole="inventario_medicamentos" />
+  </EntityType>
+  <EntityType Name="diagnostico">
+    <Key>
+      <PropertyRef Name="iddiagnostico" />
+    </Key>
+    <Property Name="iddiagnostico" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idconsulta" Type="Int32" Nullable="false" />
+    <Property Name="idenfermedad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="consulta" Relationship="hospitalModel.FK__diagnosti__idcon__5BE2A6F2" FromRole="diagnostico" ToRole="consulta" />
+    <NavigationProperty Name="enfermedades" Relationship="hospitalModel.FK__diagnosti__idenf__5CD6CB2B" FromRole="diagnostico" ToRole="enfermedades" />
+  </EntityType>
+  <EntityType Name="empleados">
+    <Key>
+      <PropertyRef Name="idempleado" />
+    </Key>
+    <Property Name="idempleado" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombres" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="apellidos" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="direccion" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="iddepartamento" Type="Int32" Nullable="false" />
+    <Property Name="idmunicipio" Type="Int32" Nullable="false" />
+    <Property Name="dui" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="NIT" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="idcargo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="cargos" Relationship="hospitalModel.FK__empleados__idcar__5DCAEF64" FromRole="empleados" ToRole="cargos" />
+    <NavigationProperty Name="departamentos" Relationship="hospitalModel.FK__empleados__iddep__5EBF139D" FromRole="empleados" ToRole="departamentos" />
+    <NavigationProperty Name="municipios" Relationship="hospitalModel.FK__empleados__idmun__5FB337D6" FromRole="empleados" ToRole="municipios" />
+    <NavigationProperty Name="encargados_de_laboratorio" Relationship="hospitalModel.FK__encargado__idemp__60A75C0F" FromRole="empleados" ToRole="encargados_de_laboratorio" />
+    <NavigationProperty Name="encargadosdefarmacia" Relationship="hospitalModel.FK__encargado__idemp__619B8048" FromRole="empleados" ToRole="encargadosdefarmacia" />
+    <NavigationProperty Name="horariosempleados" Relationship="hospitalModel.FK__horariose__idemp__6A30C649" FromRole="empleados" ToRole="horariosempleados" />
+    <NavigationProperty Name="medicos" Relationship="hospitalModel.FK__medicos__idemple__75A278F5" FromRole="empleados" ToRole="medicos" />
+    <NavigationProperty Name="usuarios" Relationship="hospitalModel.FK__usuarios__idempl__7E37BEF6" FromRole="empleados" ToRole="usuarios" />
+  </EntityType>
+  <EntityType Name="encargados_de_laboratorio">
+    <Key>
+      <PropertyRef Name="idencargado" />
+    </Key>
+    <Property Name="idencargado" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <Property Name="JVPLC" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="empleados" Relationship="hospitalModel.FK__encargado__idemp__60A75C0F" FromRole="encargados_de_laboratorio" ToRole="empleados" />
+    <NavigationProperty Name="examenes" Relationship="hospitalModel.FK__examenes__idenca__628FA481" FromRole="encargados_de_laboratorio" ToRole="examenes" />
+    <NavigationProperty Name="examenespendientes" Relationship="hospitalModel.FK__examenesp__idenc__6477ECF3" FromRole="encargados_de_laboratorio" ToRole="examenespendientes" />
+  </EntityType>
+  <EntityType Name="encargadosdefarmacia">
+    <Key>
+      <PropertyRef Name="idencargadodefarmacia" />
+    </Key>
+    <Property Name="idencargadodefarmacia" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="empleados" Relationship="hospitalModel.FK__encargado__idemp__619B8048" FromRole="encargadosdefarmacia" ToRole="empleados" />
+    <NavigationProperty Name="medicamentos_entregados" Relationship="hospitalModel.FK__medicamen__idenc__6FE99F9F" FromRole="encargadosdefarmacia" ToRole="medicamentos_entregados" />
+    <NavigationProperty Name="medicamentosentregados" Relationship="hospitalModel.FK__medicamen__idenc__70DDC3D8" FromRole="encargadosdefarmacia" ToRole="medicamentosentregados" />
+  </EntityType>
+  <EntityType Name="enfermedades">
+    <Key>
+      <PropertyRef Name="idenfermedad" />
+    </Key>
+    <Property Name="idenfermedad" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="codigo" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="diagnostico" Relationship="hospitalModel.FK__diagnosti__idenf__5CD6CB2B" FromRole="enfermedades" ToRole="diagnostico" />
+    <NavigationProperty Name="fallecidos" Relationship="hospitalModel.FK__fallecido__idenf__68487DD7" FromRole="enfermedades" ToRole="fallecidos" />
+  </EntityType>
+  <EntityType Name="examenes">
+    <Key>
+      <PropertyRef Name="idexamenes" />
+    </Key>
+    <Property Name="idexamenes" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idsubcategoriaexamen" Type="Int32" Nullable="false" />
+    <Property Name="resultadoanalisis" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="estado" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="idencargadolaboratorio" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="encargados_de_laboratorio" Relationship="hospitalModel.FK__examenes__idenca__628FA481" FromRole="examenes" ToRole="encargados_de_laboratorio" />
+    <NavigationProperty Name="subcategoria_examen" Relationship="hospitalModel.FK__examenes__idsubc__6383C8BA" FromRole="examenes" ToRole="subcategoria_examen" />
+  </EntityType>
+  <EntityType Name="examenespendientes">
+    <Key>
+      <PropertyRef Name="idexamen" />
+    </Key>
+    <Property Name="idexamen" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idsubcategoria" Type="Int32" Nullable="false" />
+    <Property Name="resultado_del_analisis" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="estado" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="idencargadolab" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="encargados_de_laboratorio" Relationship="hospitalModel.FK__examenesp__idenc__6477ECF3" FromRole="examenespendientes" ToRole="encargados_de_laboratorio" />
+    <NavigationProperty Name="subcategoria_examen" Relationship="hospitalModel.FK__examenesp__idsub__656C112C" FromRole="examenespendientes" ToRole="subcategoria_examen" />
+    <NavigationProperty Name="laboratorio" Relationship="hospitalModel.FK__laborator__idexa__6E01572D" FromRole="examenespendientes" ToRole="laboratorio" />
+  </EntityType>
+  <EntityType Name="expediente">
+    <Key>
+      <PropertyRef Name="idexpediente" />
+    </Key>
+    <Property Name="idexpediente" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="idconsulta" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="consulta" Relationship="hospitalModel.FK__expedient__idcon__66603565" FromRole="expediente" ToRole="consulta" />
+    <NavigationProperty Name="pacientes" Relationship="hospitalModel.FK__expedient__idpac__6754599E" FromRole="expediente" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="fallecidos">
+    <Key>
+      <PropertyRef Name="idfallecido" />
+    </Key>
+    <Property Name="idfallecido" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="hora" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="idenfermedad" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="enfermedades" Relationship="hospitalModel.FK__fallecido__idenf__68487DD7" FromRole="fallecidos" ToRole="enfermedades" />
+    <NavigationProperty Name="pacientes" Relationship="hospitalModel.FK__fallecido__idpac__693CA210" FromRole="fallecidos" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="habitaciones">
+    <Key>
+      <PropertyRef Name="idhabitacion" />
+    </Key>
+    <Property Name="idhabitacion" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="numerodepiso" Type="Int32" Nullable="false" />
+    <Property Name="numero_de_habitacion" Type="Int32" Nullable="false" />
+    <Property Name="tipo_de_habitacion" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="camillas" Relationship="hospitalModel.FK__camillas__idhabi__571DF1D5" FromRole="habitaciones" ToRole="camillas" />
+  </EntityType>
+  <EntityType Name="horariosempleados">
+    <Key>
+      <PropertyRef Name="idhorario" />
+    </Key>
+    <Property Name="idhorario" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <Property Name="horaentrada" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="horasalida" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="empleados" Relationship="hospitalModel.FK__horariose__idemp__6A30C649" FromRole="horariosempleados" ToRole="empleados" />
+  </EntityType>
+  <EntityType Name="internados">
+    <Key>
+      <PropertyRef Name="idinternado" />
+    </Key>
+    <Property Name="idinternado" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="fecha_de_ingreso" Type="DateTime" Precision="0" />
+    <Property Name="idcamilla" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="altas" Relationship="hospitalModel.FK__altas__idinterna__5629CD9C" FromRole="internados" ToRole="altas" />
+    <NavigationProperty Name="camillas" Relationship="hospitalModel.FK__internado__idcam__6B24EA82" FromRole="internados" ToRole="camillas" />
+    <NavigationProperty Name="pacientes" Relationship="hospitalModel.FK__internado__idpac__6C190EBB" FromRole="internados" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="inventario_medicamentos">
+    <Key>
+      <PropertyRef Name="idIM" />
+    </Key>
+    <Property Name="idIM" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreMedicamento" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
+    <Property Name="cantidad" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="idpresentacion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="detallemedicamentos_recetados" Relationship="hospitalModel.FK__detallemed__idIM__5AEE82B9" FromRole="inventario_medicamentos" ToRole="detallemedicamentos_recetados" />
+    <NavigationProperty Name="presentacionmedicamentos" Relationship="hospitalModel.FK__inventari__idpre__6D0D32F4" FromRole="inventario_medicamentos" ToRole="presentacionmedicamentos" />
+  </EntityType>
+  <EntityType Name="laboratorio">
+    <Key>
+      <PropertyRef Name="idlab" />
+    </Key>
+    <Property Name="idlab" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="idexamenes" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="examenespendientes" Relationship="hospitalModel.FK__laborator__idexa__6E01572D" FromRole="laboratorio" ToRole="examenespendientes" />
+    <NavigationProperty Name="pacientes" Relationship="hospitalModel.FK__laborator__idpac__6EF57B66" FromRole="laboratorio" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="medicamentos_entregados">
+    <Key>
+      <PropertyRef Name="idmedicamentosentregados" />
+    </Key>
+    <Property Name="idmedicamentosentregados" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idmedicamentorecetado" Type="Int32" Nullable="false" />
+    <Property Name="idencargadofarmacia" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="encargadosdefarmacia" Relationship="hospitalModel.FK__medicamen__idenc__6FE99F9F" FromRole="medicamentos_entregados" ToRole="encargadosdefarmacia" />
+  </EntityType>
+  <EntityType Name="medicamentosentregados">
+    <Key>
+      <PropertyRef Name="idmedicamentosentregados" />
+    </Key>
+    <Property Name="idmedicamentosentregados" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idmedicamentosrecetado" Type="Int32" Nullable="false" />
+    <Property Name="idencargadodefarmacia" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="encargadosdefarmacia" Relationship="hospitalModel.FK__medicamen__idenc__70DDC3D8" FromRole="medicamentosentregados" ToRole="encargadosdefarmacia" />
+    <NavigationProperty Name="medicamentosrecetados" Relationship="hospitalModel.FK__medicamen__idmed__71D1E811" FromRole="medicamentosentregados" ToRole="medicamentosrecetados" />
+  </EntityType>
+  <EntityType Name="medicamentosrecetados">
+    <Key>
+      <PropertyRef Name="idmedicamentorecetado" />
+    </Key>
+    <Property Name="idmedicamentorecetado" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idconsulta" Type="Int32" Nullable="false" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="estado" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="consulta" Relationship="hospitalModel.FK__medicamen__idcon__72C60C4A" FromRole="medicamentosrecetados" ToRole="consulta" />
+    <NavigationProperty Name="detallemedicamentos_recetados" Relationship="hospitalModel.FK__detalleme__idmed__59FA5E80" FromRole="medicamentosrecetados" ToRole="detallemedicamentos_recetados" />
+    <NavigationProperty Name="medicamentosentregados" Relationship="hospitalModel.FK__medicamen__idmed__71D1E811" FromRole="medicamentosrecetados" ToRole="medicamentosentregados" />
+    <NavigationProperty Name="pacientes" Relationship="hospitalModel.FK__medicamen__idpac__73BA3083" FromRole="medicamentosrecetados" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="medicos">
+    <Key>
+      <PropertyRef Name="idmedico" />
+    </Key>
+    <Property Name="idmedico" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <Property Name="especialidad" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="JVPM" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="id_arealaboral" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="area_Laboral" Relationship="hospitalModel.FK__medicos__id_area__74AE54BC" FromRole="medicos" ToRole="area_Laboral" />
+    <NavigationProperty Name="consulta" Relationship="hospitalModel.FK__consulta__idmedi__59063A47" FromRole="medicos" ToRole="consulta" />
+    <NavigationProperty Name="empleados" Relationship="hospitalModel.FK__medicos__idemple__75A278F5" FromRole="medicos" ToRole="empleados" />
+    <NavigationProperty Name="quirofano" Relationship="hospitalModel.FK__quirofano__idmed__797309D9" FromRole="medicos" ToRole="quirofano" />
+  </EntityType>
+  <EntityType Name="menu">
+    <Key>
+      <PropertyRef Name="idmenu" />
+    </Key>
+    <Property Name="idmenu" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="menu1" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="codigo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="usuariomenu" Relationship="hospitalModel.FK__usuariome__idmen__7C4F7684" FromRole="menu" ToRole="usuariomenu" />
+  </EntityType>
+  <EntityType Name="municipios">
+    <Key>
+      <PropertyRef Name="idmunicipio" />
+    </Key>
+    <Property Name="idmunicipio" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombremunicipio" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="id_departamento" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="departamentos" Relationship="hospitalModel.FK__municipio__id_de__76969D2E" FromRole="municipios" ToRole="departamentos" />
+    <NavigationProperty Name="empleados" Relationship="hospitalModel.FK__empleados__idmun__5FB337D6" FromRole="municipios" ToRole="empleados" />
+    <NavigationProperty Name="pacientes" Relationship="hospitalModel.FK__pacientes__id_mu__787EE5A0" FromRole="municipios" ToRole="pacientes" />
+  </EntityType>
+  <EntityType Name="pacientes">
+    <Key>
+      <PropertyRef Name="idpaciente" />
+    </Key>
+    <Property Name="idpaciente" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombres" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="apellidos" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="dui" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="direccion" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+    <Property Name="id_departamento" Type="Int32" Nullable="false" />
+    <Property Name="id_municipio" Type="Int32" Nullable="false" />
+    <Property Name="telefono" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="genero" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="nombreencargado" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="apellidoencargado" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="duiencargado" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="telefono_encargado" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="cita" Relationship="hospitalModel.FK__cita__idpaciente__5812160E" FromRole="pacientes" ToRole="cita" />
+    <NavigationProperty Name="departamentos" Relationship="hospitalModel.FK__pacientes__id_de__778AC167" FromRole="pacientes" ToRole="departamentos" />
+    <NavigationProperty Name="expediente" Relationship="hospitalModel.FK__expedient__idpac__6754599E" FromRole="pacientes" ToRole="expediente" />
+    <NavigationProperty Name="fallecidos" Relationship="hospitalModel.FK__fallecido__idpac__693CA210" FromRole="pacientes" ToRole="fallecidos" />
+    <NavigationProperty Name="internados" Relationship="hospitalModel.FK__internado__idpac__6C190EBB" FromRole="pacientes" ToRole="internados" />
+    <NavigationProperty Name="laboratorio" Relationship="hospitalModel.FK__laborator__idpac__6EF57B66" FromRole="pacientes" ToRole="laboratorio" />
+    <NavigationProperty Name="medicamentosrecetados" Relationship="hospitalModel.FK__medicamen__idpac__73BA3083" FromRole="pacientes" ToRole="medicamentosrecetados" />
+    <NavigationProperty Name="municipios" Relationship="hospitalModel.FK__pacientes__id_mu__787EE5A0" FromRole="pacientes" ToRole="municipios" />
+    <NavigationProperty Name="quirofano" Relationship="hospitalModel.FK__quirofano__idpac__7A672E12" FromRole="pacientes" ToRole="quirofano" />
+  </EntityType>
+  <EntityType Name="presentacionmedicamentos">
+    <Key>
+      <PropertyRef Name="idpresentacion" />
+    </Key>
+    <Property Name="idpresentacion" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_presentacion" Type="String" Nullable="false" MaxLength="80" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="inventario_medicamentos" Relationship="hospitalModel.FK__inventari__idpre__6D0D32F4" FromRole="presentacionmedicamentos" ToRole="inventario_medicamentos" />
+  </EntityType>
+  <EntityType Name="quirofano">
+    <Key>
+      <PropertyRef Name="idquirofano" />
+    </Key>
+    <Property Name="idquirofano" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="operacion_realizada" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="idmedico" Type="Int32" Nullable="false" />
+    <Property Name="idpaciente" Type="Int32" Nullable="false" />
+    <Property Name="observaciones" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="idtipo_operacion" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="medicos" Relationship="hospitalModel.FK__quirofano__idmed__797309D9" FromRole="quirofano" ToRole="medicos" />
+    <NavigationProperty Name="pacientes" Relationship="hospitalModel.FK__quirofano__idpac__7A672E12" FromRole="quirofano" ToRole="pacientes" />
+    <NavigationProperty Name="tipo_operaciones" Relationship="hospitalModel.FK__quirofano__idtip__7B5B524B" FromRole="quirofano" ToRole="tipo_operaciones" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="idrol" />
+    </Key>
+    <Property Name="idrol" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="rol" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="usuariomenu" Relationship="hospitalModel.FK__usuariome__idrol__7D439ABD" FromRole="roles" ToRole="usuariomenu" />
+    <NavigationProperty Name="usuarios" Relationship="hospitalModel.FK__usuarios__idrol__7F2BE32F" FromRole="roles" ToRole="usuarios" />
+  </EntityType>
+  <EntityType Name="subcategoria_examen">
+    <Key>
+      <PropertyRef Name="idsubcategoria_examen" />
+    </Key>
+    <Property Name="idsubcategoria_examen" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_subcategoria" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="examenes" Relationship="hospitalModel.FK__examenes__idsubc__6383C8BA" FromRole="subcategoria_examen" ToRole="examenes" />
+    <NavigationProperty Name="examenespendientes" Relationship="hospitalModel.FK__examenesp__idsub__656C112C" FromRole="subcategoria_examen" ToRole="examenespendientes" />
+  </EntityType>
+  <EntityType Name="tipo_operaciones">
+    <Key>
+      <PropertyRef Name="idtipo_operaciones" />
+    </Key>
+    <Property Name="idtipo_operaciones" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_operacion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="observaciones" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="quirofano" Relationship="hospitalModel.FK__quirofano__idtip__7B5B524B" FromRole="tipo_operaciones" ToRole="quirofano" />
+  </EntityType>
+  <EntityType Name="usuariomenu">
+    <Key>
+      <PropertyRef Name="idusuariomenu" />
+    </Key>
+    <Property Name="idusuariomenu" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="idrol" Type="Int32" Nullable="false" />
+    <Property Name="idmenu" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="menu" Relationship="hospitalModel.FK__usuariome__idmen__7C4F7684" FromRole="usuariomenu" ToRole="menu" />
+    <NavigationProperty Name="roles" Relationship="hospitalModel.FK__usuariome__idrol__7D439ABD" FromRole="usuariomenu" ToRole="roles" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="String" Nullable="false" MaxLength="35" Unicode="false" FixedLength="false" />
+    <Property Name="clave" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="idrol" Type="Int32" Nullable="false" />
+    <Property Name="idempleado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="empleados" Relationship="hospitalModel.FK__usuarios__idempl__7E37BEF6" FromRole="usuarios" ToRole="empleados" />
+    <NavigationProperty Name="roles" Relationship="hospitalModel.FK__usuarios__idrol__7F2BE32F" FromRole="usuarios" ToRole="roles" />
+  </EntityType>
+  <Association Name="FK__altas__idinterna__5629CD9C">
+    <End Role="internados" Type="hospitalModel.internados" Multiplicity="1" />
+    <End Role="altas" Type="hospitalModel.altas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="internados">
+        <PropertyRef Name="idinternado" />
+      </Principal>
+      <Dependent Role="altas">
+        <PropertyRef Name="idinternado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicos__id_area__74AE54BC">
+    <End Role="area_Laboral" Type="hospitalModel.area_Laboral" Multiplicity="1" />
+    <End Role="medicos" Type="hospitalModel.medicos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="area_Laboral">
+        <PropertyRef Name="idarealaboral" />
+      </Principal>
+      <Dependent Role="medicos">
+        <PropertyRef Name="id_arealaboral" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__camillas__idhabi__571DF1D5">
+    <End Role="habitaciones" Type="hospitalModel.habitaciones" Multiplicity="1" />
+    <End Role="camillas" Type="hospitalModel.camillas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="habitaciones">
+        <PropertyRef Name="idhabitacion" />
+      </Principal>
+      <Dependent Role="camillas">
+        <PropertyRef Name="idhabitacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__internado__idcam__6B24EA82">
+    <End Role="camillas" Type="hospitalModel.camillas" Multiplicity="1" />
+    <End Role="internados" Type="hospitalModel.internados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="camillas">
+        <PropertyRef Name="idcamilla" />
+      </Principal>
+      <Dependent Role="internados">
+        <PropertyRef Name="idcamilla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__empleados__idcar__5DCAEF64">
+    <End Role="cargos" Type="hospitalModel.cargos" Multiplicity="1" />
+    <End Role="empleados" Type="hospitalModel.empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cargos">
+        <PropertyRef Name="idcargo" />
+      </Principal>
+      <Dependent Role="empleados">
+        <PropertyRef Name="idcargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cita__idpaciente__5812160E">
+    <End Role="pacientes" Type="hospitalModel.pacientes" Multiplicity="1" />
+    <End Role="cita" Type="hospitalModel.cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="cita">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__consulta__idmedi__59063A47">
+    <End Role="medicos" Type="hospitalModel.medicos" Multiplicity="1" />
+    <End Role="consulta" Type="hospitalModel.consulta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="medicos">
+        <PropertyRef Name="idmedico" />
+      </Principal>
+      <Dependent Role="consulta">
+        <PropertyRef Name="idmedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__diagnosti__idcon__5BE2A6F2">
+    <End Role="consulta" Type="hospitalModel.consulta" Multiplicity="1" />
+    <End Role="diagnostico" Type="hospitalModel.diagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="consulta">
+        <PropertyRef Name="idconsulta" />
+      </Principal>
+      <Dependent Role="diagnostico">
+        <PropertyRef Name="idconsulta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__expedient__idcon__66603565">
+    <End Role="consulta" Type="hospitalModel.consulta" Multiplicity="1" />
+    <End Role="expediente" Type="hospitalModel.expediente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="consulta">
+        <PropertyRef Name="idconsulta" />
+      </Principal>
+      <Dependent Role="expediente">
+        <PropertyRef Name="idconsulta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicamen__idcon__72C60C4A">
+    <End Role="consulta" Type="hospitalModel.consulta" Multiplicity="1" />
+    <End Role="medicamentosrecetados" Type="hospitalModel.medicamentosrecetados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="consulta">
+        <PropertyRef Name="idconsulta" />
+      </Principal>
+      <Dependent Role="medicamentosrecetados">
+        <PropertyRef Name="idconsulta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__empleados__iddep__5EBF139D">
+    <End Role="departamentos" Type="hospitalModel.departamentos" Multiplicity="1" />
+    <End Role="empleados" Type="hospitalModel.empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="empleados">
+        <PropertyRef Name="iddepartamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__municipio__id_de__76969D2E">
+    <End Role="departamentos" Type="hospitalModel.departamentos" Multiplicity="1" />
+    <End Role="municipios" Type="hospitalModel.municipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="municipios">
+        <PropertyRef Name="id_departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pacientes__id_de__778AC167">
+    <End Role="departamentos" Type="hospitalModel.departamentos" Multiplicity="1" />
+    <End Role="pacientes" Type="hospitalModel.pacientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamentos">
+        <PropertyRef Name="id_departamento" />
+      </Principal>
+      <Dependent Role="pacientes">
+        <PropertyRef Name="id_departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__detalleme__idmed__59FA5E80">
+    <End Role="medicamentosrecetados" Type="hospitalModel.medicamentosrecetados" Multiplicity="1" />
+    <End Role="detallemedicamentos_recetados" Type="hospitalModel.detallemedicamentos_recetados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="medicamentosrecetados">
+        <PropertyRef Name="idmedicamentorecetado" />
+      </Principal>
+      <Dependent Role="detallemedicamentos_recetados">
+        <PropertyRef Name="idmedicamentorecetado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__detallemed__idIM__5AEE82B9">
+    <End Role="inventario_medicamentos" Type="hospitalModel.inventario_medicamentos" Multiplicity="1" />
+    <End Role="detallemedicamentos_recetados" Type="hospitalModel.detallemedicamentos_recetados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inventario_medicamentos">
+        <PropertyRef Name="idIM" />
+      </Principal>
+      <Dependent Role="detallemedicamentos_recetados">
+        <PropertyRef Name="idIM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__diagnosti__idenf__5CD6CB2B">
+    <End Role="enfermedades" Type="hospitalModel.enfermedades" Multiplicity="1" />
+    <End Role="diagnostico" Type="hospitalModel.diagnostico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enfermedades">
+        <PropertyRef Name="idenfermedad" />
+      </Principal>
+      <Dependent Role="diagnostico">
+        <PropertyRef Name="idenfermedad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__empleados__idmun__5FB337D6">
+    <End Role="municipios" Type="hospitalModel.municipios" Multiplicity="1" />
+    <End Role="empleados" Type="hospitalModel.empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="municipios">
+        <PropertyRef Name="idmunicipio" />
+      </Principal>
+      <Dependent Role="empleados">
+        <PropertyRef Name="idmunicipio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__encargado__idemp__60A75C0F">
+    <End Role="empleados" Type="hospitalModel.empleados" Multiplicity="1" />
+    <End Role="encargados_de_laboratorio" Type="hospitalModel.encargados_de_laboratorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="encargados_de_laboratorio">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__encargado__idemp__619B8048">
+    <End Role="empleados" Type="hospitalModel.empleados" Multiplicity="1" />
+    <End Role="encargadosdefarmacia" Type="hospitalModel.encargadosdefarmacia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="encargadosdefarmacia">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__horariose__idemp__6A30C649">
+    <End Role="empleados" Type="hospitalModel.empleados" Multiplicity="1" />
+    <End Role="horariosempleados" Type="hospitalModel.horariosempleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="horariosempleados">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicos__idemple__75A278F5">
+    <End Role="empleados" Type="hospitalModel.empleados" Multiplicity="1" />
+    <End Role="medicos" Type="hospitalModel.medicos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="medicos">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuarios__idempl__7E37BEF6">
+    <End Role="empleados" Type="hospitalModel.empleados" Multiplicity="1" />
+    <End Role="usuarios" Type="hospitalModel.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="idempleado" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="idempleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__examenes__idenca__628FA481">
+    <End Role="encargados_de_laboratorio" Type="hospitalModel.encargados_de_laboratorio" Multiplicity="1" />
+    <End Role="examenes" Type="hospitalModel.examenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="encargados_de_laboratorio">
+        <PropertyRef Name="idencargado" />
+      </Principal>
+      <Dependent Role="examenes">
+        <PropertyRef Name="idencargadolaboratorio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__examenesp__idenc__6477ECF3">
+    <End Role="encargados_de_laboratorio" Type="hospitalModel.encargados_de_laboratorio" Multiplicity="1" />
+    <End Role="examenespendientes" Type="hospitalModel.examenespendientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="encargados_de_laboratorio">
+        <PropertyRef Name="idencargado" />
+      </Principal>
+      <Dependent Role="examenespendientes">
+        <PropertyRef Name="idencargadolab" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicamen__idenc__6FE99F9F">
+    <End Role="encargadosdefarmacia" Type="hospitalModel.encargadosdefarmacia" Multiplicity="1" />
+    <End Role="medicamentos_entregados" Type="hospitalModel.medicamentos_entregados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="encargadosdefarmacia">
+        <PropertyRef Name="idencargadodefarmacia" />
+      </Principal>
+      <Dependent Role="medicamentos_entregados">
+        <PropertyRef Name="idencargadofarmacia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicamen__idenc__70DDC3D8">
+    <End Role="encargadosdefarmacia" Type="hospitalModel.encargadosdefarmacia" Multiplicity="1" />
+    <End Role="medicamentosentregados" Type="hospitalModel.medicamentosentregados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="encargadosdefarmacia">
+        <PropertyRef Name="idencargadodefarmacia" />
+      </Principal>
+      <Dependent Role="medicamentosentregados">
+        <PropertyRef Name="idencargadodefarmacia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__fallecido__idenf__68487DD7">
+    <End Role="enfermedades" Type="hospitalModel.enfermedades" Multiplicity="1" />
+    <End Role="fallecidos" Type="hospitalModel.fallecidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="enfermedades">
+        <PropertyRef Name="idenfermedad" />
+      </Principal>
+      <Dependent Role="fallecidos">
+        <PropertyRef Name="idenfermedad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__examenes__idsubc__6383C8BA">
+    <End Role="subcategoria_examen" Type="hospitalModel.subcategoria_examen" Multiplicity="1" />
+    <End Role="examenes" Type="hospitalModel.examenes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subcategoria_examen">
+        <PropertyRef Name="idsubcategoria_examen" />
+      </Principal>
+      <Dependent Role="examenes">
+        <PropertyRef Name="idsubcategoriaexamen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__examenesp__idsub__656C112C">
+    <End Role="subcategoria_examen" Type="hospitalModel.subcategoria_examen" Multiplicity="1" />
+    <End Role="examenespendientes" Type="hospitalModel.examenespendientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subcategoria_examen">
+        <PropertyRef Name="idsubcategoria_examen" />
+      </Principal>
+      <Dependent Role="examenespendientes">
+        <PropertyRef Name="idsubcategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__laborator__idexa__6E01572D">
+    <End Role="examenespendientes" Type="hospitalModel.examenespendientes" Multiplicity="1" />
+    <End Role="laboratorio" Type="hospitalModel.laboratorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="examenespendientes">
+        <PropertyRef Name="idexamen" />
+      </Principal>
+      <Dependent Role="laboratorio">
+        <PropertyRef Name="idexamenes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__expedient__idpac__6754599E">
+    <End Role="pacientes" Type="hospitalModel.pacientes" Multiplicity="1" />
+    <End Role="expediente" Type="hospitalModel.expediente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="expediente">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__fallecido__idpac__693CA210">
+    <End Role="pacientes" Type="hospitalModel.pacientes" Multiplicity="1" />
+    <End Role="fallecidos" Type="hospitalModel.fallecidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="fallecidos">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__internado__idpac__6C190EBB">
+    <End Role="pacientes" Type="hospitalModel.pacientes" Multiplicity="1" />
+    <End Role="internados" Type="hospitalModel.internados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="internados">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__inventari__idpre__6D0D32F4">
+    <End Role="presentacionmedicamentos" Type="hospitalModel.presentacionmedicamentos" Multiplicity="1" />
+    <End Role="inventario_medicamentos" Type="hospitalModel.inventario_medicamentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="presentacionmedicamentos">
+        <PropertyRef Name="idpresentacion" />
+      </Principal>
+      <Dependent Role="inventario_medicamentos">
+        <PropertyRef Name="idpresentacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__laborator__idpac__6EF57B66">
+    <End Role="pacientes" Type="hospitalModel.pacientes" Multiplicity="1" />
+    <End Role="laboratorio" Type="hospitalModel.laboratorio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="laboratorio">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicamen__idmed__71D1E811">
+    <End Role="medicamentosrecetados" Type="hospitalModel.medicamentosrecetados" Multiplicity="1" />
+    <End Role="medicamentosentregados" Type="hospitalModel.medicamentosentregados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="medicamentosrecetados">
+        <PropertyRef Name="idmedicamentorecetado" />
+      </Principal>
+      <Dependent Role="medicamentosentregados">
+        <PropertyRef Name="idmedicamentosrecetado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__medicamen__idpac__73BA3083">
+    <End Role="pacientes" Type="hospitalModel.pacientes" Multiplicity="1" />
+    <End Role="medicamentosrecetados" Type="hospitalModel.medicamentosrecetados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="medicamentosrecetados">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__quirofano__idmed__797309D9">
+    <End Role="medicos" Type="hospitalModel.medicos" Multiplicity="1" />
+    <End Role="quirofano" Type="hospitalModel.quirofano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="medicos">
+        <PropertyRef Name="idmedico" />
+      </Principal>
+      <Dependent Role="quirofano">
+        <PropertyRef Name="idmedico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuariome__idmen__7C4F7684">
+    <End Role="menu" Type="hospitalModel.menu" Multiplicity="1" />
+    <End Role="usuariomenu" Type="hospitalModel.usuariomenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="menu">
+        <PropertyRef Name="idmenu" />
+      </Principal>
+      <Dependent Role="usuariomenu">
+        <PropertyRef Name="idmenu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__pacientes__id_mu__787EE5A0">
+    <End Role="municipios" Type="hospitalModel.municipios" Multiplicity="1" />
+    <End Role="pacientes" Type="hospitalModel.pacientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="municipios">
+        <PropertyRef Name="idmunicipio" />
+      </Principal>
+      <Dependent Role="pacientes">
+        <PropertyRef Name="id_municipio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__quirofano__idpac__7A672E12">
+    <End Role="pacientes" Type="hospitalModel.pacientes" Multiplicity="1" />
+    <End Role="quirofano" Type="hospitalModel.quirofano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pacientes">
+        <PropertyRef Name="idpaciente" />
+      </Principal>
+      <Dependent Role="quirofano">
+        <PropertyRef Name="idpaciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__quirofano__idtip__7B5B524B">
+    <End Role="tipo_operaciones" Type="hospitalModel.tipo_operaciones" Multiplicity="1" />
+    <End Role="quirofano" Type="hospitalModel.quirofano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_operaciones">
+        <PropertyRef Name="idtipo_operaciones" />
+      </Principal>
+      <Dependent Role="quirofano">
+        <PropertyRef Name="idtipo_operacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuariome__idrol__7D439ABD">
+    <End Role="roles" Type="hospitalModel.roles" Multiplicity="1" />
+    <End Role="usuariomenu" Type="hospitalModel.usuariomenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="usuariomenu">
+        <PropertyRef Name="idrol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__usuarios__idrol__7F2BE32F">
+    <End Role="roles" Type="hospitalModel.roles" Multiplicity="1" />
+    <End Role="usuarios" Type="hospitalModel.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="idrol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

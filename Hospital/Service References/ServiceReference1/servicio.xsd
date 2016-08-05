@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://Servicios/" targetNamespace="http://Servicios/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Otro" type="tns:Otro" />
+  <xs:element name="OtroResponse" type="tns:OtroResponse" />
+  <xs:element name="dbSintomas" type="tns:dbSintomas" />
+  <xs:element name="dbSintomasResponse" type="tns:dbSintomasResponse" />
+  <xs:element name="dere" type="tns:dere" />
+  <xs:element name="dereResponse" type="tns:dereResponse" />
+  <xs:element name="getVersion" type="tns:getVersion" />
+  <xs:element name="getVersionResponse" type="tns:getVersionResponse" />
+  <xs:element name="listaEnfermedades" type="tns:listaEnfermedades" />
+  <xs:element name="listaEnfermedadesResponse" type="tns:listaEnfermedadesResponse" />
+  <xs:element name="operation" type="tns:operation" />
+  <xs:element name="operationResponse" type="tns:operationResponse" />
+  <xs:complexType name="Otro">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="OtroResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaEnfermedades">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="sintoma" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listaEnfermedadesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:dato" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dato">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dato" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dbSintomas">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="dbSintomasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:sintomas" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sintomas">
+    <xs:sequence>
+      <xs:element name="idsintoma" type="xs:int" />
+      <xs:element minOccurs="0" name="sintoma" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getVersion">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getVersionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="operation">
+    <xs:sequence>
+      <xs:element name="departamento" type="xs:int" />
+      <xs:element name="enfermedad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="operationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:resultado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultado">
+    <xs:sequence>
+      <xs:element name="casos" type="xs:int" />
+      <xs:element minOccurs="0" name="municipio" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dere">
+    <xs:sequence>
+      <xs:element name="departamento" type="xs:int" />
+      <xs:element name="enfermedad" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dereResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
